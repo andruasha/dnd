@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>Header</h1>
+    <p>TEXT</p>
+    <a href="{% url 'users:login' %}">Login</a> | <a href="{% url 'users:registration' %}">Registartion</a>
+    <br><br>
+    <a href='{% url 'home:home' %}'>Go to generate</a>
+    {% csrf_token %}
+
+    {% if user.is_authenticated %}
+        {% if summaries %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>PATH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in summaries %}
+                    <tr>
+                        <td>{{ row.name }}</td>
+                        <td><a href="{% url 'home:download' path=row.path %}">Download</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Вы пока что не создали ни одного резюме.</p>
+        {% endif %}
+    {% else %}
+        <p>Необходимо авторизоваться, чтобы увидеть созданные резюме.</p>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>cvmaker</title>
+    <style>
+        .form-row {
+            margin-bottom: 10px;
+        }
+
+        .form-row label {
+            display: inline-block;
+            width: 120px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .form-row input,
+        .form-row textarea {
+            display: inline-block;
+            width: 300px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>header</h1>
+
+    <form id="myForm" action="{% url 'home:home' %}" method="post">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <label for="{{ form.title.id_for_label }}">Название:</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.name.id_for_label }}">Имя:</label>
+            {{ form.name }}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.surname.id_for_label }}">Фамилия:</label>
+            {{ form.surname }}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.email.id_for_label }}">Почта:</label>
+            {{ form.email }}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.number.id_for_label }}">Телефон:</label>
+            {{ form.number }}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.education.id_for_label }}">Образование:</label>
+            {{ form.education }}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.experience.id_for_label }}">Опыт работы:</label>
+            {{ form.experience }}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.skills.id_for_label }}">Навыки:</label>
+            {{ form.skills }}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.languages.id_for_label }}">Языки:</label>
+            {{ form.languages }}
+        </div>
+
+        <input type="submit" value="Сгенерировать резюме">
+    </form>
+</body>
+</html>
