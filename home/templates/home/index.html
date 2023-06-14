@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ title }}</title>
+  <title>Магический Бестиарий</title>
+  <meta charset="utf-8">
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <h1>Header</h1>
-    <p>TEXT</p>
-    <a href="{% url 'users:login' %}">Login</a> | <a href="{% url 'users:registration' %}">Registartion</a>
-    <br><br>
-    <a href='{% url 'home:home' %}'>Go to generate</a>
-    {% csrf_token %}
+  <h1>Магический Бестиарий</h1>
 
-    {% if user.is_authenticated %}
-        {% if summaries %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>NAME</th>
-                        <th>PATH</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for row in summaries %}
-                    <tr>
-                        <td>{{ row.name }}</td>
-                        <td><a href="{% url 'home:download' path=row.path %}">Download</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <p>Вы пока что не создали ни одного резюме.</p>
-        {% endif %}
-    {% else %}
-        <p>Необходимо авторизоваться, чтобы увидеть созданные резюме.</p>
-    {% endif %}
+  <div class="dropdown">
+    <button>Бестиарий</button>
+    <div class="dropdown-content">
+      <a href="{% url 'home:bestiary_delete' %}">Удалить</a>
+      <a href={% url 'home:bestiary_create' %}>Создать</a>
+      <a href={% url 'home:bestiary_find' %}>Найти</a>
+    </div>
+  </div>
 
+  <div class="dropdown">
+    <button>Заклинания</button>
+    <div class="dropdown-content">
+      <a href={% url 'home:spells_delete' %}>Удалить</a>
+      <a href={% url 'home:spells_create' %}>Создать</a>
+      <a href={% url 'home:spells_find' %}>Найти</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button>Предметы</button>
+    <div class="dropdown-content">
+      <a href={% url 'home:items_delete' %}>Удалить</a>
+      <a href={% url 'home:items_create' %}>Создать</a>
+      <a href={% url 'home:items_find' %}>Найти</a>
+    </div>
+  </div>
 </body>
 </html>
