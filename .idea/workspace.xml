@@ -1,38 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dnd.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cvmaker.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dnd/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dnd/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dnd/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dnd/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/fonts/arial.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/generator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0002_rename_summury_summary.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0003_summary_user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/resumes/0.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/resumes/1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/resumes/2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/resumes/3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,8 +73,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686769730064</updated>
-      <workItem from="1686769731928" duration="8031000" />
+      <workItem from="1686769731928" duration="8231000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1686780979781</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686780979781</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +98,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

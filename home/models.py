@@ -15,6 +15,17 @@ class Archetypes(models.Model):
     Archetypes_Description = models.TextField(null=True)
 
 
+class school(models.Model):
+    School_ID = models.TextField(primary_key=True, null=False)
+    School_Description = models.TextField(null=True)
+
+
+class Item_Type(models.Model):
+    Item_Type_ID = models.TextField(primary_key=True, null=False)
+    Item_Type_Description = models.TextField(null=True)
+
+
+
 class Spells(models.Model):
     Spell_ID = models.TextField(primary_key=True, null=False)
     Spell_Author = models.IntegerField()
