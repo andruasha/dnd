@@ -30,7 +30,7 @@
         <select id="School" name="School">
             <option value="" selected>---</option>
             {% for school in schools %}
-                <option value="{{ school.pk }}">{{ school.School_Description }}</option>
+                <option value="{{ school.pk }}">{{ school.pk }}</option>
             {% endfor %}
         </select>
         <br>
@@ -39,7 +39,7 @@
         <select id="Archetypes" name="Archetypes">
             <option value="" selected>---</option>
             {% for archetype in archetypes %}
-                <option value="{{ archetype.pk }}">{{ archetype.Archetypes_Description }}</option>
+                <option value="{{ archetype.pk }}">{{ archetype.pk }}</option>
             {% endfor %}
         </select>
         <br>

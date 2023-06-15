@@ -26,7 +26,7 @@
         <select id="Item_Type" name="Item_Type">
             <option value="" selected>---</option>
             {% for type in types %}
-                <option value="{{ type.pk }}">{{ type.Item_Type_Description }}</option>
+                <option value="{{ type.pk }}">{{ type.pk }}</option>
             {% endfor %}
         </select>
         <br>
