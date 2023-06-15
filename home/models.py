@@ -4,8 +4,6 @@ from django.contrib.auth.models import AbstractUser
 
 class Author(AbstractUser):
     Author_ID = models.IntegerField(primary_key=True, null=False)
-    Name = models.TextField(null=False)
-    Last_Name = models.TextField(null=False)
     Organization = models.TextField(null=True)
 
 
@@ -31,6 +29,11 @@ class Size(models.Model):
 
 
 class Species(models.Model):
+    Species_ID = models.TextField(primary_key=True, null=False)
+    Species_Description = models.TextField(null=True)
+
+
+class Worldview(models.Model):
     Worldview_ID = models.TextField(primary_key=True, null=False)
     Worldview_Description = models.TextField(null=True)
 
@@ -73,3 +76,27 @@ class Items(models.Model):
     Item_Setting = models.TextField(null=True)
     Item_Price = models.TextField(null=True)
     Item_Description = models.TextField(null=True)
+
+
+class Bestiary(models.Model):
+    Bestiary_ID = models.TextField(primary_key=True, null=False)
+    Bestiary_Author = models.ForeignKey('Author', on_delete=models.DO_NOTHING, to_field='Author_ID')
+    Size_ID = models.ForeignKey('Size', on_delete=models.DO_NOTHING, to_field='Size_ID')
+    Species_ID = models.ForeignKey('Species', on_delete=models.DO_NOTHING, to_field='Species_ID')
+    Subspecies = models.TextField(null=True)
+    Worldview_ID = models.ForeignKey('Worldview', on_delete=models.DO_NOTHING, to_field='Worldview_ID')
+    Armor_ID = models.ForeignKey('Armor', on_delete=models.DO_NOTHING, to_field='Armor_ID')
+    Hits = models.IntegerField(null=False)
+    Speed = models.TextField(null=False)
+    Language_ID = models.ForeignKey('Language', on_delete=models.DO_NOTHING, to_field='Language_ID')
+    Characteristics = models.TextField(null=False)
+    Resistance_Damage = models.TextField(null=True)
+    Immunity_Damage = models.TextField(null=True)
+    Vulnerability_Damage = models.TextField(null=True)
+    Immunity_State = models.TextField(null=True)
+    Salvage = models.TextField(null=True)
+    Skills = models.TextField(null=True)
+    Senses = models.TextField(null=True)
+    Habitat_ID = models.ForeignKey('Habitat', on_delete=models.DO_NOTHING, to_field='Habitat_ID')
+    Danger = models.IntegerField(null=False)
+    Description = models.TextField(null=True)
