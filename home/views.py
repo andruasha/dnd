@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from home.forms import SpellForm
 
 
 def index(request):
@@ -30,7 +31,17 @@ def items_delete(request):
 
 
 def spells_find(request):
-    return render(request, 'home/spells_find.html')
+    if request.method == 'POST':
+        form = SpellForm(data=request.POST)
+        spell_level = request.POST['Spell_Level']
+        school = request.POST['School']
+        archetype = request.POST['Archetypes']
+        print(spell_level)
+    else:
+        form = SpellForm()
+    print('penis')
+    context = {'form': form}
+    return render(request, 'home/spells_find.html', context)
 
 
 def spells_create(request):
