@@ -73,7 +73,8 @@ def spells_find(request):
         print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
     else:
         form = SpellForm()
-    context = {'form': form}
+    authors = Author.objects.all()
+    context = {'form': form, 'authors': authors}
     return render(request, 'home/spells_find.html', context)
 
 

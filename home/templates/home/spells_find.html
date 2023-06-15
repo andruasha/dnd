@@ -37,11 +37,12 @@
         </select>
         <br>
 
-        <label for="Spell_Author">Level:</label>
+        <label for="Spell_Author">Author:</label>
         <select id="Spell_Author" name="Spell_Author">
             <option value="" selected>---</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
+            {% for author in authors %}
+                <option value="{{ author.pk }}">{{ author.username }}</option>
+            {% endfor %}
         </select>
         <br>
 
