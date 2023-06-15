@@ -15,7 +15,7 @@ class Archetypes(models.Model):
     Archetypes_Description = models.TextField(null=True)
 
 
-class school(models.Model):
+class School(models.Model):
     School_ID = models.TextField(primary_key=True, null=False)
     School_Description = models.TextField(null=True)
 
@@ -25,7 +25,51 @@ class Item_Type(models.Model):
     Item_Type_Description = models.TextField(null=True)
 
 
+class Size(models.Model):
+    Size_ID = models.TextField(primary_key=True, null=False)
+    Size_Description = models.TextField(null=True)
+
+
+class Species(models.Model):
+    Worldview_ID = models.TextField(primary_key=True, null=False)
+    Worldview_Description = models.TextField(null=True)
+
+
+class Armor(models.Model):
+    Armor_ID = models.TextField(primary_key=True, null=False)
+    Armor_Description = models.TextField(null=True)
+    Armor_Class = models.IntegerField(null=True)
+
+
+class Language(models.Model):
+    Language_ID = models.TextField(primary_key=True, null=False)
+    Language_Description = models.TextField(null=True)
+
+
+class Habitat(models.Model):
+    Habitat_ID = models.TextField(primary_key=True, null=False)
+    Habitat_Description = models.TextField(null=True)
+
 
 class Spells(models.Model):
     Spell_ID = models.TextField(primary_key=True, null=False)
-    Spell_Author = models.IntegerField()
+    Spell_Author = models.ForeignKey('Author', on_delete=models.DO_NOTHING, to_field='Author_ID')
+    Spell_Level = models.IntegerField(null=False)
+    School = models.ForeignKey('School', models.DO_NOTHING, to_field='School_ID')
+    Time_Application = models.TextField(null=True)
+    Distance = models.TextField(null=True)
+    Duration = models.TextField(null=True)
+    Components = models.TextField(null=False)
+    Archetypes = models.ForeignKey('Archetypes', models.DO_NOTHING, to_field='Archetypes_ID')
+    Description = models.TextField(null=True)
+
+
+class Items(models.Model):
+    Item_ID = models.TextField(primary_key=True, null=False)
+    Item_Author = models.ForeignKey('Author', on_delete=models.DO_NOTHING, to_field='Author_ID')
+    Item_Type = models.ForeignKey('Item_Type', on_delete=models.DO_NOTHING, to_field='Item_Type_ID')
+    Item_Subtype = models.TextField(null=True)
+    Item_Rarity = models.TextField(null=False)
+    Item_Setting = models.TextField(null=True)
+    Item_Price = models.TextField(null=True)
+    Item_Description = models.TextField(null=True)
