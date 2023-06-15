@@ -3,6 +3,9 @@ from home.forms import ItemsFindForm, ItemsDeleteForm, ItemsCreateForm
 from home.forms import SpellFindForm
 from django.shortcuts import render, HttpResponseRedirect
 from home.models import Author
+from home.models import Size, Species, Worldview, Armor, Language, Habitat
+from home.models import Item_Type as Items_Type
+from home.models import School, Archetypes as Archetype
 from home.forms import UserLoginForm, UserRegistrationForm
 from django.contrib import auth
 from django.urls import reverse
@@ -57,8 +60,24 @@ def bestiary_find(request):
         print(Bestiary_ID)
     else:
         form = BestiaryFindForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    sizes = Size.objects.all()
+    specieses = Species.objects.all()
+    worldviews = Worldview.objects.all()
+    armors = Armor.objects.all()
+    languages = Language.objects.all()
+    habitats = Habitat.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'sizes': sizes,
+               'specieses': specieses,
+               'worldviews': worldviews,
+               'armors': armors,
+               'languages': languages,
+               'habitats': habitats, }
+
     return render(request, 'home/bestiary_find.html', context)
 
 
@@ -85,8 +104,24 @@ def bestiary_create(request):
         print(Bestiary_ID)
     else:
         form = BestiaryCreateForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    sizes = Size.objects.all()
+    specieses = Species.objects.all()
+    worldviews = Worldview.objects.all()
+    armors = Armor.objects.all()
+    languages = Language.objects.all()
+    habitats = Habitat.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'sizes': sizes,
+               'specieses': specieses,
+               'worldviews': worldviews,
+               'armors': armors,
+               'languages': languages,
+               'habitats': habitats, }
+
     return render(request, 'home/bestiary_create.html', context)
 
 
@@ -107,8 +142,24 @@ def bestiary_delete(request):
         print(Bestiary_ID)
     else:
         form = BestiaryDeleteForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    sizes = Size.objects.all()
+    specieses = Species.objects.all()
+    worldviews = Worldview.objects.all()
+    armors = Armor.objects.all()
+    languages = Language.objects.all()
+    habitats = Habitat.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'sizes': sizes,
+               'specieses': specieses,
+               'worldviews': worldviews,
+               'armors': armors,
+               'languages': languages,
+               'habitats': habitats, }
+
     return render(request, 'home/bestiary_delete.html', context)
 
 
@@ -125,8 +176,14 @@ def items_find(request):
         print(Item_ID)
     else:
         form = ItemsFindForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    types = Items_Type.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'types': types, }
+
     return render(request, 'home/items_find.html', context)
 
 
@@ -144,8 +201,14 @@ def items_create(request):
         print(Item_ID)
     else:
         form = ItemsCreateForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    types = Items_Type.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'types': types, }
+
     return render(request, 'home/items_create.html', context)
 
 
@@ -162,8 +225,14 @@ def items_delete(request):
         print(Item_ID)
     else:
         form = ItemsDeleteForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    types = Items_Type.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'types': types, }
+
     return render(request, 'home/items_delete.html', context)
 
 
@@ -178,8 +247,16 @@ def spells_find(request):
         print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
     else:
         form = SpellFindForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    schools = School.objects.all()
+    archetypes = Archetype.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'schools': schools,
+               'archetypes': archetypes, }
+
     return render(request, 'home/spells_find.html', context)
 
 
@@ -196,8 +273,16 @@ def spells_create(request):
         print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
     else:
         form = SpellFindForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    schools = School.objects.all()
+    archetypes = Archetype.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'schools': schools,
+               'archetypes': archetypes, }
+
     return render(request, 'home/spells_create.html', context)
 
 
@@ -212,7 +297,14 @@ def spells_delete(request):
         print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
     else:
         form = SpellFindForm()
+
     authors = Author.objects.all()
-    context = {'form': form, 'authors': authors}
+    schools = School.objects.all()
+    archetypes = Archetype.objects.all()
+
+    context = {'form': form,
+               'authors': authors,
+               'schools': schools,
+               'archetypes': archetypes, }
 
     return render(request, 'home/spells_delete.html', context)

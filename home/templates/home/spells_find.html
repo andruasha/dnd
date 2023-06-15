@@ -23,19 +23,14 @@
         <br>
 
         <label for="Spell_Level">Level:</label>
-        <select id="Spell_Level" name="Spell_Level">
-            <option value="" selected>---</option>
-            {% for level in spell_levels %}
-                <option value="{{ level }}">{{ level }}</option>
-            {% endfor %}
-        </select>
+        <input type="text" id="Spell_Level" name="Spell_Level">
         <br>
 
         <label for="School">School:</label>
         <select id="School" name="School">
             <option value="" selected>---</option>
             {% for school in schools %}
-                <option value="{{ school.pk }}">{{ school.name }}</option>
+                <option value="{{ school.pk }}">{{ school.School_Description }}</option>
             {% endfor %}
         </select>
         <br>
@@ -44,13 +39,14 @@
         <select id="Archetypes" name="Archetypes">
             <option value="" selected>---</option>
             {% for archetype in archetypes %}
-                <option value="{{ archetype.pk }}">{{ archetype.name }}</option>
+                <option value="{{ archetype.pk }}">{{ archetype.Archetypes_Description }}</option>
             {% endfor %}
         </select>
         <br>
 
-        <input type="submit" value="Create">
+        <input type="submit" value="Find">
     </form>
+
 
 </body>
 </html>
