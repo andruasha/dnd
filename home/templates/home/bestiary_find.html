@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>D&D Spell Selection</title>
+    <title>D&D</title>
 </head>
 <body>
-    <h1>Spell Selection</h1>
+    <h1>Bestiary Find</h1>
 
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+    <form method="post" action="{% url 'home:bestiary_find' %}">
+        {% csrf_token %}
 
-        <label for="level">Level:</label>
-        <select id="level">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <!-- Добавьте другие уровни заклинаний в соответствии с вашими потребностями -->
+        <label for="Bestiary_ID">Bestiary ID:</label>
+        <input type="text" id="Bestiary_ID" name="Bestiary_ID">
+        <br>
+
+        <label for="Size_ID">Size_ID:</label>
+        <select id="Size_ID" name="Size_ID">
+            <option value="" selected>---</option>
+            <option value="1">Small</option>
         </select>
         <br>
 
-        <label for="school">School:</label>
-        <select id="school">
-            <option value="1">School 1</option>
-            <option value="2">School 2</option>
-            <!-- Добавьте другие школы магии в соответствии с вашими потребностями -->
+        <label for="Species_ID">Species_ID:</label>
+        <select id="Species_ID" name="Species_ID">
+            <option value="" selected>---</option>
+            <option value="1">Humanoid</option>
         </select>
         <br>
 
-        <label for="archetype">Archetype:</label>
-        <select id="archetype">
-            <option value="1">Archetype 1</option>
-            <option value="2">Archetype 2</option>
-            <!-- Добавьте другие архетипы в соответствии с вашими потребностями -->
+        <label for="Worldview_ID">Worldview_ID:</label>
+        <select id="Worldview_ID" name="Worldview_ID">
+            <option value="" selected>---</option>
+            <option value="1">Good</option>
         </select>
         <br>
 
-        <!-- Добавьте другие выпадающие списки в соответствии с вашей моделью Spells -->
+        <label for="Danger">Danger:</label>
+        <input type="text" id="Danger" name="Danger">
+        <br>
 
-        <input type="submit" value="Submit">
+        <label for="Bestiary_Author">Bestiary_Author:</label>
+        <select id="Bestiary_Author" name="Bestiary_Author">
+            <option value="" selected>---</option>
+            <option value="1">John Doe</option>
+        </select>
+        <br>
+
+        <label for="Language_ID">Language_ID:</label>
+        <select id="Language_ID" name="Language_ID">
+            <option value="" selected>---</option>
+            <option value="1">Common</option>
+        </select>
+        <br>
+
+        <label for="Habitat_ID">Habitat_ID:</label>
+        <select id="Habitat_ID" name="Habitat_ID">
+            <option value="" selected>---</option>
+            <option value="1">Forest</option>
+        </select>
+        <br>
+
+        <label for="Hits">Hits:</label>
+        <input type="text" id="Hits" name="Hits">
+        <br>
+
+        <label for="Armor_ID">Armor_ID:</label>
+        <select id="Armor_ID" name="Armor_ID">
+            <option value="" selected>---</option>
+            <option value="1">Leather</option>
+        </select>
+        <br>
+
+        <input type="submit" value="Find">
     </form>
+
 </body>
 </html>

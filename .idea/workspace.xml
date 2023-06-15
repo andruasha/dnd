@@ -4,6 +4,14 @@
     <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_find.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_find.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/items_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/items_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/items_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/items_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/items_find.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/items_find.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/home/spells_find.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/spells_find.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
@@ -80,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686769730064</updated>
-      <workItem from="1686769731928" duration="25077000" />
+      <workItem from="1686769731928" duration="31732000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1686780979781</created>
@@ -131,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686830560662</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update">
+      <created>1686843100041</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686843100041</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

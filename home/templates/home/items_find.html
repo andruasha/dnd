@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>D&D</title>
+</head>
+<body>
+    <h1>Items Find</h1>
+
+    <form method="post" action="{% url 'home:items_find' %}">
+        {% csrf_token %}
+
+        <label for="Item_ID">Item ID:</label>
+        <input type="text" id="Item_ID" name="Item_ID">
+        <br>
+
+        <label for="Item_Author">Author:</label>
+        <select id="Item_Author" name="Item_Author">
+            <option value="" selected>---</option>
+            {% for author in authors %}
+                <option value="{{ author.pk }}">{{ author.username }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="Item_Type">Type:</label>
+        <select id="Item_Type" name="Item_Type">
+            <option value="" selected>---</option>
+            {% for item_type in item_types %}
+                <option value="{{ item_type.pk }}">{{ item_type.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="Item_Subtype">Subtype:</label>
+        <input type="text" id="Item_Subtype" name="Item_Subtype">
+        <br>
+
+        <label for="Item_Rarity">Rarity:</label>
+        <input type="text" id="Item_Rarity" name="Item_Rarity">
+        <br>
+
+        <label for="Item_Setting">Setting:</label>
+        <input type="text" id="Item_Setting" name="Item_Setting">
+        <br>
+
+        <label for="Item_Price">Price:</label>
+        <input type="text" id="Item_Price" name="Item_Price">
+        <br>
+
+        <input type="submit" value="Find">
+    </form>
+
+
+</body>
+</html>

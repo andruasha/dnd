@@ -1,1 +1,101 @@
-anal
+<!DOCTYPE html>
+<html>
+<head>
+    <title>D&D</title>
+</head>
+<body>
+    <h1>Bestiary Create</h1>
+
+    <form method="post" action="{% url 'home:bestiary_create' %}">
+        {% csrf_token %}
+
+        <label for="Bestiary_ID">Bestiary ID:</label>
+        <input type="text" id="Bestiary_ID" name="Bestiary_ID">
+        <br>
+
+        <label for="Size_ID">Size_ID:</label>
+        <select id="Size_ID" name="Size_ID">
+            <option value="" selected>---</option>
+            <option value="1">Small</option>
+        </select>
+        <br>
+
+        <label for="Species_ID">Species_ID:</label>
+        <select id="Species_ID" name="Species_ID">
+            <option value="" selected>---</option>
+            <option value="1">Humanoid</option>
+        </select>
+        <br>
+
+        <label for="Speed">Speed:</label>
+        <input type="text" id="Speed" name="Speed">
+        <br>
+
+        <label for="Worldview_ID">Worldview_ID:</label>
+        <select id="Worldview_ID" name="Worldview_ID">
+            <option value="" selected>---</option>
+            <option value="1">Good</option>
+        </select>
+        <br>
+
+        <label for="Danger">Danger:</label>
+        <input type="text" id="Danger" name="Danger">
+        <br>
+
+        <label for="Bestiary_Author">Bestiary_Author:</label>
+        <select id="Bestiary_Author" name="Bestiary_Author">
+            <option value="" selected>---</option>
+            <option value="1">John Doe</option>
+        </select>
+        <br>
+
+        <label for="Language_ID">Language_ID:</label>
+        <select id="Language_ID" name="Language_ID">
+            <option value="" selected>---</option>
+            <option value="1">Common</option>
+        </select>
+        <br>
+
+        <label for="Habitat_ID">Habitat_ID:</label>
+        <select id="Habitat_ID" name="Habitat_ID">
+            <option value="" selected>---</option>
+            <option value="1">Forest</option>
+        </select>
+        <br>
+
+        <label for="Hits">Hits:</label>
+        <input type="text" id="Hits" name="Hits">
+        <br>
+
+        <label for="Armor_ID">Armor_ID:</label>
+        <select id="Armor_ID" name="Armor_ID">
+            <option value="" selected>---</option>
+            <option value="1">Leather</option>
+        </select>
+        <br>
+
+        <label for="Characteristics">Characteristics:</label>
+        <input type="text" id="Characteristics" name="Characteristics">
+        <br>
+
+        <label for="Resistance_Damage">Resistance_Damage:</label>
+        <input type="text" id="Resistance_Damage" name="Resistance_Damage">
+        <br>
+
+        <label for="Immunity_Damage">Immunity_Damage:</label>
+        <input type="text" id="Immunity_Damage" name="Immunity_Damage">
+        <br>
+
+        <label for="Skills">Skills:</label>
+        <input type="text" id="Skills" name="Skills">
+        <br>
+
+        <label for="Description">Description:</label>
+        <input type="text" id="Description" name="Description">
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
