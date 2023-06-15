@@ -15,4 +15,6 @@ urlpatterns = [
     path('', include('home.urls', namespace='spells_find')),
     path('', include('home.urls', namespace='spells_create')),
     path('', include('home.urls', namespace='spells_delete')),
+    path('', include('home.urls', namespace='login')),
+    path('', include('home.urls', namespace='registration')),
 ]

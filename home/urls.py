@@ -1,5 +1,5 @@
 from django.urls import path
-from home.views import bestiary_find, bestiary_create, bestiary_delete, items_find, items_create, items_delete, spells_find, spells_create, spells_delete, index
+from home.views import bestiary_find, bestiary_create, bestiary_delete, items_find, items_create, items_delete, spells_find, spells_create, spells_delete, index, login, registration
 
 
 app_name = 'home'
@@ -15,4 +15,6 @@ urlpatterns = [
     path('spells/find/', spells_find, name='spells_find'),
     path('spells/create/', spells_create, name='spells_create'),
     path('spells/delete/', spells_delete, name='spells_delete'),
+    path('login/', login, name='login'),
+    path('registration/', registration, name='registration'),
 ]

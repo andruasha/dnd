@@ -9,32 +9,41 @@
     <form method="post" action="{% url 'home:spells_find' %}">
         {% csrf_token %}
 
-        <label for="level">Level:</label>
-        <select id="level" name="Spell_Level">
-            <option value="" selected>---</option>  <!-- Пустой элемент, выбран по умолчанию -->
+        <label for="Spell_ID">Spell_ID:</label>
+        <input type="text" id="Spell_ID" name="Spell_ID">
+        <br>
+
+        <label for="Spell_Level">Spell_Level:</label>
+        <select id="Spell_Level" name="Spell_Level">
+            <option value="" selected>---</option>
             <option value="1">1</option>
             <option value="2">2</option>
-            <!-- Добавьте другие уровни заклинаний в соответствии с вашими потребностями -->
         </select>
         <br>
 
-        <label for="school">School:</label>
-        <select id="school" name="School">
+        <label for="School">School:</label>
+        <select id="School" name="School">
+            <option value="" selected>---</option>
             <option value="1">School 1</option>
             <option value="2">School 2</option>
-            <!-- Добавьте другие школы магии в соответствии с вашими потребностями -->
         </select>
         <br>
 
-        <label for="archetype">Archetype:</label>
-        <select id="archetype" name="Archetypes">
+        <label for="Archetype">Archetype:</label>
+        <select id="Archetype" name="Archetypes">
+            <option value="" selected>---</option>
             <option value="1">Archetype 1</option>
             <option value="2">Archetype 2</option>
-            <!-- Добавьте другие архетипы в соответствии с вашими потребностями -->
         </select>
         <br>
 
-        <!-- Добавьте другие выпадающие списки и поля ввода в соответствии с вашей моделью Spells -->
+        <label for="Spell_Author">Level:</label>
+        <select id="Spell_Author" name="Spell_Author">
+            <option value="" selected>---</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <br>
 
         <input type="submit" value="Submit">
     </form>

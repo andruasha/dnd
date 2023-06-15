@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <form action="{% url 'home:registration' %}" method="post">
+        {% csrf_token %}
+        <div>
+
+            <div>
+                <label for="{{ form.username.id_for_label }}">Имя пользователя:</label>
+                {{ form.username }}
+            </div>
+
+            <div>
+                <label for="{{ form.first_name.id_for_label }}">Имя:</label>
+                {{ form.first_name }}
+            </div>
+
+            <div>
+                <label for="{{ form.last_name.id_for_label }}">Фамилия:</label>
+                {{ form.last_name }}
+            </div>
+
+            <div>
+                <label for="{{ form.Organization.id_for_label }}">Организация:</label>
+                {{ form.Organization }}
+            </div>
+
+            <div>
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                {{ form.email }}
+            </div>
+
+            <div>
+                <label for="{{ form.password1.id_for_label }}">Пароль:</label>
+            {{ form.password1 }}
+            </div>
+
+            <div>
+                <label for="{{ form.password2.id_for_label }}">Повторите пароль:</label>
+                {{ form.password2 }}
+            </div>
+
+            <input type="submit" value="Зарегистрироваться">
+        </div>
+
+    </form>
+</body>
+</html>
