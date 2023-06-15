@@ -6,13 +6,13 @@ app_name = 'home'
 
 urlpatterns = [
     path('', index, name='index'),
-    path('find/', bestiary_find, name='bestiary_find'),
-    path('create/', bestiary_create, name='bestiary_create'),
-    path('delete/', bestiary_delete, name='bestiary_delete'),
-    path('find/', items_find, name='items_find'),
-    path('create/', items_create, name='items_create'),
-    path('delete/', items_delete, name='items_delete'),
-    path('find/', spells_find, name='spells_find'),
-    path('create/', spells_create, name='spells_create'),
-    path('delete/', spells_delete, name='spells_delete'),
+    path('bestiary/find/', bestiary_find, name='bestiary_find'),
+    path('bestiary/create/', bestiary_create, name='bestiary_create'),
+    path('bestiary/delete/', bestiary_delete, name='bestiary_delete'),
+    path('items/find/', items_find, name='items_find'),
+    path('items/create/', items_create, name='items_create'),
+    path('items/delete/', items_delete, name='items_delete'),
+    path('spells/find/', spells_find, name='spells_find'),
+    path('spells/create/', spells_create, name='spells_create'),
+    path('spells/delete/', spells_delete, name='spells_delete'),
 ]
