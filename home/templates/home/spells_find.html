@@ -4,37 +4,13 @@
     <title>D&D</title>
 </head>
 <body>
-    <h1>Spell Find</h1>
+    <h1>Spells Find</h1>
 
     <form method="post" action="{% url 'home:spells_find' %}">
         {% csrf_token %}
 
-        <label for="Spell_ID">Spell_ID:</label>
+        <label for="Spell_ID">Spell ID:</label>
         <input type="text" id="Spell_ID" name="Spell_ID">
-        <br>
-
-        <label for="Spell_Level">Spell_Level:</label>
-        <select id="Spell_Level" name="Spell_Level">
-            <option value="" selected>---</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-        </select>
-        <br>
-
-        <label for="School">School:</label>
-        <select id="School" name="School">
-            <option value="" selected>---</option>
-            <option value="1">School 1</option>
-            <option value="2">School 2</option>
-        </select>
-        <br>
-
-        <label for="Archetype">Archetype:</label>
-        <select id="Archetype" name="Archetypes">
-            <option value="" selected>---</option>
-            <option value="1">Archetype 1</option>
-            <option value="2">Archetype 2</option>
-        </select>
         <br>
 
         <label for="Spell_Author">Author:</label>
@@ -46,7 +22,35 @@
         </select>
         <br>
 
-        <input type="submit" value="Submit">
+        <label for="Spell_Level">Level:</label>
+        <select id="Spell_Level" name="Spell_Level">
+            <option value="" selected>---</option>
+            {% for level in spell_levels %}
+                <option value="{{ level }}">{{ level }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="School">School:</label>
+        <select id="School" name="School">
+            <option value="" selected>---</option>
+            {% for school in schools %}
+                <option value="{{ school.pk }}">{{ school.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="Archetypes">Archetypes:</label>
+        <select id="Archetypes" name="Archetypes">
+            <option value="" selected>---</option>
+            {% for archetype in archetypes %}
+                <option value="{{ archetype.pk }}">{{ archetype.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <input type="submit" value="Create">
     </form>
+
 </body>
 </html>

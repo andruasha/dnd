@@ -161,7 +161,7 @@ def items_delete(request):
 
         print(Item_ID)
     else:
-        form = ItemsCreateForm()
+        form = ItemsDeleteForm()
     authors = Author.objects.all()
     context = {'form': form, 'authors': authors}
     return render(request, 'home/items_delete.html', context)
@@ -184,8 +184,35 @@ def spells_find(request):
 
 
 def spells_create(request):
-    return render(request, 'home/spells_create.html')
+    if request.method == 'POST':
+        form = SpellFindForm(data=request.POST)
+        Spell_ID = request.POST['Spell_ID']
+        Spell_Type = request.POST['Spell_Type']
+        Spell_Rarity = request.POST['Spell_Rarity']
+        Spell_Level = request.POST['Spell_Level']
+        Archetypes = request.POST['Archetypes']
+        Spell_Author = request.POST['Spell_Author']
+
+        print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
+    else:
+        form = SpellFindForm()
+    authors = Author.objects.all()
+    context = {'form': form, 'authors': authors}
+    return render(request, 'home/spells_create.html', context)
 
 
 def spells_delete(request):
-    return render(request, 'home/spells_delete.html')
+    if request.method == 'POST':
+        form = SpellFindForm(data=request.POST)
+        Spell_ID = request.POST['Spell_ID']
+        Spell_Level = request.POST['Spell_Level']
+        Archetypes = request.POST['Archetypes']
+        Spell_Author = request.POST['Spell_Author']
+
+        print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
+    else:
+        form = SpellFindForm()
+    authors = Author.objects.all()
+    context = {'form': form, 'authors': authors}
+
+    return render(request, 'home/spells_delete.html', context)

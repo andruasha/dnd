@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>D&D</title>
+</head>
+<body>
+    <h1>Spells Delete</h1>
+
+    <form method="post" action="{% url 'home:spells_delete' %}">
+        {% csrf_token %}
+
+        <label for="Spell_ID">Spell ID:</label>
+        <input type="text" id="Spell_ID" name="Spell_ID">
+        <br>
+
+        <label for="Spell_Author">Author:</label>
+        <select id="Spell_Author" name="Spell_Author">
+            <option value="" selected>---</option>
+            {% for author in authors %}
+                <option value="{{ author.pk }}">{{ author.username }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="Spell_Level">Level:</label>
+        <select id="Spell_Level" name="Spell_Level">
+            <option value="" selected>---</option>
+            {% for level in spell_levels %}
+                <option value="{{ level }}">{{ level }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="School">School:</label>
+        <select id="School" name="School">
+            <option value="" selected>---</option>
+            {% for school in schools %}
+                <option value="{{ school.pk }}">{{ school.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="Archetypes">Archetypes:</label>
+        <select id="Archetypes" name="Archetypes">
+            <option value="" selected>---</option>
+            {% for archetype in archetypes %}
+                <option value="{{ archetype.pk }}">{{ archetype.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <input type="submit" value="Create">
+    </form>
+
+</body>
+</html>

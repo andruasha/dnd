@@ -110,7 +110,24 @@ class ItemsFindForm(forms.ModelForm):
                   'Item_Setting', 'Item_Author', 'Item_Price', ]
 
 
+class SpellDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Spells
+        fields = ['Spell_ID', 'Spell_Author', 'Spell_Level',
+                  'School', 'Archetypes', ]
+
+
+class SpellCreateForm(forms.ModelForm):
+    class Meta:
+        model = Spells
+        fields = ['Spell_ID', 'Spell_Author', 'Spell_Level',
+                  'School', 'Time_Application', 'Distance',
+                  'Duration', 'Components', 'Archetypes',
+                  'Description', ]
+
+
 class SpellFindForm(forms.ModelForm):
     class Meta:
         model = Spells
-        fields = ['Spell_ID', 'Spell_Level', 'Archetypes', 'Spell_Author']
+        fields = ['Spell_ID', 'Spell_Level', 'Archetypes',
+                  'Spell_Author', 'School', ]
