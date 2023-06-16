@@ -192,6 +192,7 @@ def items_find(request):
 
 @login_required(login_url='home:login')
 def items_create(request):
+    status = None
     if request.method == 'POST':
         form = ItemsCreateForm(data=request.POST)
         Item_ID = request.POST['Item_ID']
@@ -213,10 +214,11 @@ def items_create(request):
                                      Item_Author_id=request.user.pk,
                                      Item_Price=Item_Price,
                                      Item_Description=Item_Description)
+                status = 'Ok'
             else:
                 raise ValueError('Error')
         except:
-            print('huinya')
+            status = 'Error'
     else:
         form = ItemsCreateForm()
 
@@ -226,7 +228,8 @@ def items_create(request):
 
     context = {'form': form,
                'authors': authors,
-               'types': types, }
+               'types': types,
+               'status': status, }
 
     return render(request, 'home/items_create.html', context)
 
