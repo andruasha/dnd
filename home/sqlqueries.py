@@ -1,13 +1,9 @@
 import sqlite3
 from django.db import connection
+from prettytable import PrettyTable
 
 
-def func():
-    with connection.cursor() as cursor:
-        cursor.execute('SELECT * FROM home_items')
-        rows = cursor.fetchall()
-        for row in rows:
-            print(row)
+cursor = connection.cursor()
 
 
 bestiary_select_query = '''SELECT Bestiary.Bestiary_ID
@@ -62,7 +58,7 @@ spells_insert_query = '''INSERT INTO Spells (Spell_ID, Spell_Level, School, Arch
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     '''
 
-items_insert_query = '''INSERT INTO Items (Item_ID, Item_Type, Item_Rarity, Item_Setting, Item_Author, Item_Price, Item_Description)
+items_insert_query = '''INSERT INTO home_items (Item_ID, Item_Type_id, Item_Rarity, Item_Setting, Item_Author_id, Item_Price, Item_Description)
     VALUES (?, ?, ?, ?, ?, ?, ?)
     '''
 
@@ -123,12 +119,14 @@ def items_select(params):
     # Вывод таблицы на экран
     print(table.get_string())
 
+
 def bestiary_insert(params):
     try:
         cursor.execute(bestiary_insert_query, params)
         return True
     except sqlite3.Error:
         return False
+
 
 def spells_insert(params):
     try:
@@ -138,12 +136,14 @@ def spells_insert(params):
         print("Ошибка при удалении из базы данных:", str(e))
         return False
 
+
 def items_insert(params):
     try:
         cursor.execute(items_insert_query, params)
         return True
     except sqlite3.Error:
         return False
+
 
 def bestiary_delete(params):
     try:

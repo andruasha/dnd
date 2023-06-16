@@ -10,7 +10,6 @@ from home.forms import UserLoginForm, UserRegistrationForm
 from django.contrib import auth
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from home.sqlqueries import func
 
 
 def login(request):
@@ -195,33 +194,33 @@ def items_find(request):
 def items_create(request):
     if request.method == 'POST':
         form = ItemsCreateForm(data=request.POST)
-        if form.is_valid():
-            Item_ID = request.POST['Item_ID']
-            Item_Type = request.POST['Item_Type']
+        Item_ID = request.POST['Item_ID']
+        Item_Type = request.POST['Item_Type']
+        Item_Subtype = request.POST['Item_Subtype']
+        Item_Rarity = request.POST['Item_Rarity']
+        Item_Setting = request.POST['Item_Setting']
+        Item_Price = request.POST['Item_Price']
+        Item_Description = request.POST['Item_Description']
 
+        try:
             item_type = Item_Types.objects.get(pk=Item_Type)
-
-            Item_Subtype = request.POST['Item_Subtype']
-            Item_Rarity = request.POST['Item_Rarity']
-            Item_Setting = request.POST['Item_Setting']
-            Item_Price = request.POST['Item_Price']
-            Item_Description = request.POST['Item_Description']
-
-            Items.objects.create(Item_ID=Item_ID,
-                                 Item_Type=item_type,
-                                 Item_Subtype=Item_Subtype,
-                                 Item_Rarity=Item_Rarity,
-                                 Item_Setting=Item_Setting,
-                                 Item_Author_id=request.user.pk,
-                                 Item_Price=Item_Price,
-                                 Item_Description=Item_Description)
-
-        else:
-            print('error')
+            if Item_ID and item_type and Item_Rarity:
+                Items.objects.create(Item_ID=Item_ID,
+                                     Item_Type=item_type,
+                                     Item_Subtype=Item_Subtype,
+                                     Item_Rarity=Item_Rarity,
+                                     Item_Setting=Item_Setting,
+                                     Item_Author_id=request.user.pk,
+                                     Item_Price=Item_Price,
+                                     Item_Description=Item_Description)
+            else:
+                raise ValueError('Error')
+        except:
+            print('huinya')
     else:
         form = ItemsCreateForm()
 
-    func()
+
     authors = Author.objects.all()
     types = Items_Type.objects.all()
 
