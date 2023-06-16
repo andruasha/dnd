@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="add spells create">
+    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="add spells find">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dnd/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dnd/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/home/spells_find.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/spells_find.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -82,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686769730064</updated>
       <workItem from="1686769731928" duration="45014000" />
-      <workItem from="1686897851726" duration="18457000" />
+      <workItem from="1686897851726" duration="20694000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1686780979781</created>
@@ -217,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686926717961</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add spells find">
+      <created>1686929912492</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686929912492</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +245,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="add bestiary create" />
     <MESSAGE value="add spells create" />
-    <option name="LAST_COMMIT_MESSAGE" value="add spells create" />
+    <MESSAGE value="add spells find" />
+    <option name="LAST_COMMIT_MESSAGE" value="add spells find" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

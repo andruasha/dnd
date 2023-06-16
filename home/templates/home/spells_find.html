@@ -72,17 +72,17 @@
                     <th>ID</th>
                     <th>Level</th>
                     <th>School</th>
-                    <th>Archetype</th>
                     <th>Author</th>
+                    <th>Archetype</th>
                 </tr>
             </thead>
             <tbody>
                 {% for result in results %}
                     <tr>
-                        <td>{{ result.Spell_ID }}</td>
+                        <td><a href="{% url 'home:spell_detail' result.Spell_ID %}">{{ result.Spell_ID }}</a></td>
                         <td>{{ result.Spell_Level }}</td>
                         <td>{{ result.School_id }}</td>
-                        <td>{{ result.Spell_Author_id }}</td>
+                        <td>{{ result.Spell_Author_id.username }}</td>
                         <td>{{ result.Archetypes_id }}</td>
                     </tr>
                 {% endfor %}

@@ -11,6 +11,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 
 
 def login(request):
@@ -325,6 +326,12 @@ def spells_find(request):
     print(results)
 
     return render(request, 'home/spells_find.html', context)
+
+
+def spell_detail(request, spell_id):
+    spell = get_object_or_404(Spells, Spell_ID=spell_id)
+    context = {'spell': spell}
+    return render(request, 'home/spell_detail.html', context)
 
 
 @login_required(login_url='home:login')

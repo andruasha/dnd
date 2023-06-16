@@ -1,6 +1,6 @@
 from django.urls import path
-from home.views import bestiary_find, bestiary_create, bestiary_delete, items_find, items_create, items_delete, spells_find, spells_create, spells_delete, index, login, registration
-
+from home.views import bestiary_find, bestiary_create, bestiary_delete, items_find, items_create, items_delete, spells_create, spells_delete, index, login, registration
+from home.views import spells_find, spell_detail
 
 app_name = 'home'
 
@@ -17,4 +17,5 @@ urlpatterns = [
     path('spells/delete/', spells_delete, name='spells_delete'),
     path('login/', login, name='login'),
     path('registration/', registration, name='registration'),
+    path('spells/<int:spell_id>', spell_detail, name='spell_detail'),
 ]
