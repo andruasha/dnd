@@ -66,6 +66,10 @@ class Spells(models.Model):
     Archetypes = models.ForeignKey('Archetypes', models.DO_NOTHING, to_field='Archetypes_ID')
     Description = models.TextField(null=True)
 
+    def __str__(self):
+        field_values = self.__dict__
+        return str({field: value for field, value in field_values.items() if not field.startswith('_')})
+
 
 class Items(models.Model):
     Item_ID = models.TextField(primary_key=True, null=False)
@@ -76,6 +80,11 @@ class Items(models.Model):
     Item_Setting = models.TextField(null=True)
     Item_Price = models.TextField(null=True)
     Item_Description = models.TextField(null=True)
+
+    def __str__(self):
+        field_values = self.__dict__
+        return str({field: value for field, value in field_values.items() if not field.startswith('_')})
+
 
 
 class Bestiary(models.Model):
@@ -95,3 +104,7 @@ class Bestiary(models.Model):
     Habitat_ID = models.ForeignKey('Habitat', on_delete=models.DO_NOTHING, to_field='Habitat_ID')
     Danger = models.IntegerField(null=False)
     Description = models.TextField(null=True)
+
+    def __str__(self):
+        field_values = self.__dict__
+        return str({field: value for field, value in field_values.items() if not field.startswith('_')})

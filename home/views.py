@@ -10,6 +10,8 @@ from django.contrib import auth
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
+from django.db.models import Q
+
 
 def login(request):
     if request.method == 'POST':
@@ -279,6 +281,7 @@ def items_delete(request):
 
 
 def spells_find(request):
+    results = None
     if request.method == 'POST':
         form = SpellFindForm(data=request.POST)
         Spell_ID = request.POST['Spell_ID']
@@ -286,6 +289,26 @@ def spells_find(request):
         School_ID = request.POST['School']
         Archetypes_ID = request.POST['Archetypes']
         Spell_Author = request.POST['Spell_Author']
+
+        filters = Q()
+        if Spell_ID:
+            filters &= Q(Spell_ID__startswith=Spell_ID)
+
+        if Spell_Level:
+            filters &= Q(Spell_Level=Spell_Level)
+
+        if School_ID:
+            filters &= Q(School=School_ID)
+
+        if Archetypes_ID:
+            filters &= Q(Archetypes=Archetypes_ID)
+
+        if Spell_Author:
+            filters &= Q(Spell_Author=Spell_Author)
+
+        results = Spells.objects.filter(filters)
+        for result in results:
+            print(result)
 
     else:
         form = SpellFindForm()
@@ -297,7 +320,9 @@ def spells_find(request):
     context = {'form': form,
                'authors': authors,
                'schools': schools,
-               'archetypes': archetypes, }
+               'archetypes': archetypes,
+               'results': results, }
+    print(results)
 
     return render(request, 'home/spells_find.html', context)
 

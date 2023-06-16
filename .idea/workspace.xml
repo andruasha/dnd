@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="add spells create">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/items_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/items_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/spells_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/spells_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/spells_find.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/spells_find.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686769730064</updated>
       <workItem from="1686769731928" duration="45014000" />
-      <workItem from="1686897851726" duration="15153000" />
+      <workItem from="1686897851726" duration="18457000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1686780979781</created>
@@ -209,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686912671746</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add spells create">
+      <created>1686926717961</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686926717961</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
