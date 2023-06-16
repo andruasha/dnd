@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="add bestiary and items find">
+    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="complete finds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_find.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_find.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686769730064</updated>
       <workItem from="1686769731928" duration="45014000" />
-      <workItem from="1686897851726" duration="23536000" />
+      <workItem from="1686897851726" duration="25443000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1686780979781</created>
@@ -244,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686934547389</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="complete finds">
+      <created>1686935056059</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1686935056059</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +274,8 @@
     <MESSAGE value="add spells find" />
     <MESSAGE value="add spells detail" />
     <MESSAGE value="add bestiary and items find" />
-    <option name="LAST_COMMIT_MESSAGE" value="add bestiary and items find" />
+    <MESSAGE value="complete finds" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete finds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

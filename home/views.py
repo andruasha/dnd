@@ -212,9 +212,49 @@ def bestiary_delete(request):
         Hits = request.POST['Hits']
         Armor_ID = request.POST['Armor_ID']
 
-        print(Bestiary_ID)
+        filter_params = {}
+
+        if Bestiary_ID:
+            filter_params['Bestiary_ID'] = Bestiary_ID
+
+        if Size_ID:
+            filter_params['Size_ID'] = Size_ID
+
+        if Species_ID:
+            filter_params['Species_ID'] = Species_ID
+
+        if Worldview_ID:
+            filter_params['Worldview_ID'] = Worldview_ID
+
+        if Danger:
+            filter_params['Danger'] = Danger
+
+        if Language_ID:
+            filter_params['Language_ID'] = Language_ID
+
+        if Habitat_ID:
+            filter_params['Habitat_ID'] = Habitat_ID
+
+        if Hits:
+            filter_params['Hits'] = Hits
+
+        if Armor_ID:
+            filter_params['Armor_ID'] = Armor_ID
+
+        filter_params['Bestiary_Author_id'] = request.user.pk
+
+        if len(filter_params)>1:
+            try:
+                Bestiary.objects.filter(**filter_params).delete()
+                status = 'Ok'
+            except:
+                status = 'Error'
+        else:
+            status = 'Nothing'
+
     else:
         form = BestiaryDeleteForm()
+        status = 'Nothing'
 
     sizes = Size.objects.all()
     specieses = Species.objects.all()
@@ -229,7 +269,8 @@ def bestiary_delete(request):
                'worldviews': worldviews,
                'armors': armors,
                'languages': languages,
-               'habitats': habitats, }
+               'habitats': habitats,
+               'status': status, }
 
     return render(request, 'home/bestiary_delete.html', context)
 
@@ -336,14 +377,43 @@ def items_delete(request):
         Item_Setting = request.POST['Item_Setting']
         Item_Price = request.POST['Item_Price']
 
-        print(Item_ID)
+        filter_params = {}
+
+        if Item_ID:
+            filter_params['Item_ID'] = Item_ID
+
+        if Item_Type:
+            filter_params['Item_Type'] = Item_Type
+
+        if Item_Rarity:
+            filter_params['Item_Rarity'] = Item_Rarity
+
+        if Item_Setting:
+            filter_params['Item_Setting'] = Item_Setting
+
+        if Item_Price:
+            filter_params['Item_Price'] = Item_Price
+
+        filter_params['Item_Author_id'] = request.user.pk
+
+        if len(filter_params)>1:
+            try:
+                Items.objects.filter(**filter_params).delete()
+                status = 'Ok'
+            except:
+                status = 'Error'
+        else:
+            status = 'Nothing'
+
     else:
         form = ItemsDeleteForm()
+        status = 'Nothing'
 
     types = Item_Types.objects.all()
 
     context = {'form': form,
-               'types': types, }
+               'types': types,
+               'status': status, }
 
     return render(request, 'home/items_delete.html', context)
 
@@ -454,14 +524,41 @@ def spells_delete(request):
         School_ID = request.POST['School']
         Archetypes_ID = request.POST['Archetypes']
 
+        filter_params = {}
+
+        if Spell_ID:
+            filter_params['Spell_ID'] = Spell_ID
+
+        if Spell_Level:
+            filter_params['Spell_Level'] = Spell_Level
+
+        if School_ID:
+            filter_params['School'] = School_ID
+
+        if Archetypes_ID:
+            filter_params['Archetypes'] = Archetypes_ID
+
+        filter_params['Spell_Author_id'] = request.user.pk
+
+        if len(filter_params)>1:
+            try:
+                Spells.objects.filter(**filter_params).delete()
+                status = 'Ok'
+            except:
+                status = 'Error'
+        else:
+            status = 'Nothing'
+
     else:
         form = SpellFindForm()
+        status = 'Nothing'
 
     schools = School.objects.all()
     archetypes = Archetype.objects.all()
 
     context = {'form': form,
                'schools': schools,
-               'archetypes': archetypes, }
+               'archetypes': archetypes,
+               'status': status, }
 
     return render(request, 'home/spells_delete.html', context)
