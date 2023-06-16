@@ -9,11 +9,11 @@
     <form method="post" action="{% url 'home:bestiary_create' %}">
         {% csrf_token %}
 
-        <label for="Bestiary_ID">Bestiary ID:</label>
+        <label for="Bestiary_ID">Bestiary_ID *:</label>
         <input type="text" id="Bestiary_ID" name="Bestiary_ID">
         <br>
 
-        <label for="Size_ID">Size_ID:</label>
+        <label for="Size_ID">Size *:</label>
         <select id="Size_ID" name="Size_ID">
             <option value="" selected>---</option>
             {% for size in sizes %}
@@ -22,7 +22,7 @@
         </select>
         <br>
 
-        <label for="Species_ID">Species_ID:</label>
+        <label for="Species_ID">Species *:</label>
         <select id="Species_ID" name="Species_ID">
             <option value="" selected>---</option>
             {% for species in specieses %}
@@ -31,11 +31,11 @@
         </select>
         <br>
 
-        <label for="Speed">Speed:</label>
+        <label for="Speed">Speed *:</label>
         <input type="text" id="Speed" name="Speed">
         <br>
 
-        <label for="Worldview_ID">Worldview_ID:</label>
+        <label for="Worldview_ID">Worldview *:</label>
         <select id="Worldview_ID" name="Worldview_ID">
             <option value="" selected>---</option>
             {% for worldview in worldviews %}
@@ -44,11 +44,11 @@
         </select>
         <br>
 
-        <label for="Danger">Danger:</label>
+        <label for="Danger">Danger *:</label>
         <input type="text" id="Danger" name="Danger">
         <br>
 
-        <label for="Language_ID">Language_ID:</label>
+        <label for="Language_ID">Language *:</label>
         <select id="Language_ID" name="Language_ID">
             <option value="" selected>---</option>
             {% for language in languages %}
@@ -57,7 +57,7 @@
         </select>
         <br>
 
-        <label for="Habitat_ID">Habitat_ID:</label>
+        <label for="Habitat_ID">Habitat *:</label>
         <select id="Habitat_ID" name="Habitat_ID">
             <option value="" selected>---</option>
             {% for habitat in habitats %}
@@ -66,11 +66,11 @@
         </select>
         <br>
 
-        <label for="Hits">Hits:</label>
+        <label for="Hits">Hits *:</label>
         <input type="text" id="Hits" name="Hits">
         <br>
 
-        <label for="Armor_ID">Armor_ID:</label>
+        <label for="Armor_ID">Armor *:</label>
         <select id="Armor_ID" name="Armor_ID">
             <option value="" selected>---</option>
             {% for armor in armors %}
@@ -79,7 +79,7 @@
         </select>
         <br>
 
-        <label for="Characteristics">Characteristics:</label>
+        <label for="Characteristics">Characteristics *:</label>
         <input type="text" id="Characteristics" name="Characteristics">
         <br>
 

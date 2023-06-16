@@ -9,11 +9,11 @@
     <form method="post" action="{% url 'home:items_create' %}">
         {% csrf_token %}
 
-        <label for="Item_ID">Item ID:</label>
+        <label for="Item_ID">Item_ID *:</label>
         <input type="text" id="Item_ID" name="Item_ID">
         <br>
 
-        <label for="Item_Type">Type:</label>
+        <label for="Item_Type">Type *:</label>
         <select id="Item_Type" name="Item_Type">
             <option value="" selected>---</option>
             {% for type in types %}
@@ -26,7 +26,7 @@
         <input type="text" id="Item_Subtype" name="Item_Subtype">
         <br>
 
-        <label for="Item_Rarity">Rarity:</label>
+        <label for="Item_Rarity">Rarity *:</label>
         <input type="text" id="Item_Rarity" name="Item_Rarity">
         <br>
 

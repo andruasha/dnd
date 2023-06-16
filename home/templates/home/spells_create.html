@@ -9,15 +9,15 @@
     <form method="post" action="{% url 'home:spells_create' %}">
         {% csrf_token %}
 
-        <label for="Spell_ID">Spell ID:</label>
+        <label for="Spell_ID">Spell_ID *:</label>
         <input type="text" id="Spell_ID" name="Spell_ID">
         <br>
 
-        <label for="Spell_Level">Level:</label>
+        <label for="Spell_Level">Level *:</label>
         <input type="text" id="Spell_Level" name="Spell_Level">
         <br>
 
-        <label for="School">School:</label>
+        <label for="School">School *:</label>
         <select id="School" name="School">
             <option value="" selected>---</option>
             {% for school in schools %}
@@ -38,11 +38,11 @@
         <input type="text" id="Duration" name="Duration">
         <br>
 
-        <label for="Components">Components:</label>
+        <label for="Components">Components *:</label>
         <input type="text" id="Components" name="Components">
         <br>
 
-        <label for="Archetypes">Archetypes:</label>
+        <label for="Archetypes">Archetypes *:</label>
         <select id="Archetypes" name="Archetypes">
             <option value="" selected>---</option>
             {% for archetype in archetypes %}
