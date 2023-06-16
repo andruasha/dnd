@@ -2,6 +2,24 @@
 <html>
 <head>
     <title>D&D</title>
+
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+
 </head>
 <body>
     <h1>Items Find</h1>
@@ -49,6 +67,30 @@
 
         <input type="submit" value="Find">
     </form>
+
+    {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Author</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                    <tr>
+                        <td><a href="{% url 'home:item_detail' result.Item_ID %}">{{ result.Item_ID }}</a></td>
+                        <td>{{ result.Item_ID }}</td>
+                        <td>{{ result.Item_Author_id }}</td>
+                        <td>{{ result.Item_Type_id }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
 
 
 </body>

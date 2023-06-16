@@ -20,4 +20,7 @@ urlpatterns = [
     path('', include('home.urls', namespace='login')),
     path('', include('home.urls', namespace='registration')),
     path('', include('home.urls', namespace='spell_detail')),
+    path('', include('home.urls', namespace='item_detail')),
+    path('', include('home.urls', namespace='bestiary_detail')),
+
 ]

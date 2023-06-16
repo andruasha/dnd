@@ -60,9 +60,42 @@ def bestiary_find(request):
         Hits = request.POST['Hits']
         Armor_ID = request.POST['Armor_ID']
 
-        print(Bestiary_ID)
+        filters = Q()
+        if Bestiary_ID:
+            filters &= Q(Spell_ID__startswith=Bestiary_ID)
+
+        if Size_ID:
+            filters &= Q(Spell_Level=Size_ID)
+
+        if Species_ID:
+            filters &= Q(School=Species_ID)
+
+        if Worldview_ID:
+            filters &= Q(Archetypes=Worldview_ID)
+
+        if Danger:
+            filters &= Q(Spell_Author=Danger)
+
+        if Bestiary_Author:
+            filters &= Q(Spell_Author=Bestiary_Author)
+
+        if Language_ID:
+            filters &= Q(Spell_Author=Language_ID)
+
+        if Habitat_ID:
+            filters &= Q(Spell_Author=Habitat_ID)
+
+        if Hits:
+            filters &= Q(Spell_Author=Hits)
+
+        if Armor_ID:
+            filters &= Q(Spell_Author=Armor_ID)
+
+        results = Bestiary.objects.filter(filters)
+
     else:
         form = BestiaryFindForm()
+        results = None
 
     authors = Author.objects.all()
     sizes = Size.objects.all()
@@ -79,9 +112,16 @@ def bestiary_find(request):
                'worldviews': worldviews,
                'armors': armors,
                'languages': languages,
-               'habitats': habitats, }
+               'habitats': habitats,
+               'results': results, }
 
     return render(request, 'home/bestiary_find.html', context)
+
+
+def bestiary_detail(request, bestiary_id):
+    bestiary = get_object_or_404(Bestiary, Spell_ID=bestiary_id)
+    context = {'bestiary': bestiary}
+    return render(request, 'home/bestiary_detail.html', context)
 
 
 @login_required(login_url='home:login')
@@ -204,18 +244,45 @@ def items_find(request):
         Item_Author = request.POST['Item_Author']
         Item_Price = request.POST['Item_Price']
 
-        print(Item_ID)
+        filters = Q()
+        if Item_ID:
+            filters &= Q(Spell_ID__startswith=Item_ID)
+
+        if Item_Type:
+            filters &= Q(Spell_Level=Item_Type)
+
+        if Item_Rarity:
+            filters &= Q(School=Item_Rarity)
+
+        if Item_Setting:
+            filters &= Q(Archetypes=Item_Setting)
+
+        if Item_Author:
+            filters &= Q(Spell_Author=Item_Author)
+
+        if Item_Price:
+            filters &= Q(Spell_Author=Item_Price)
+
+        results = Items.objects.filter(filters)
     else:
         form = ItemsFindForm()
+        results = None
 
     authors = Author.objects.all()
     types = Item_Types.objects.all()
 
     context = {'form': form,
                'authors': authors,
-               'types': types, }
+               'types': types,
+               'results': results, }
 
     return render(request, 'home/items_find.html', context)
+
+
+def item_detail(request, item_id):
+    item = get_object_or_404(Items, Spell_ID=item_id)
+    context = {'item': item}
+    return render(request, 'home/item_detail.html', context)
 
 
 @login_required(login_url='home:login')
@@ -308,8 +375,6 @@ def spells_find(request):
             filters &= Q(Spell_Author=Spell_Author)
 
         results = Spells.objects.filter(filters)
-        for result in results:
-            print(result)
 
     else:
         form = SpellFindForm()
@@ -323,7 +388,6 @@ def spells_find(request):
                'schools': schools,
                'archetypes': archetypes,
                'results': results, }
-    print(results)
 
     return render(request, 'home/spells_find.html', context)
 
