@@ -81,7 +81,6 @@
                 {% for result in results %}
                     <tr>
                         <td><a href="{% url 'home:item_detail' result.Item_ID %}">{{ result.Item_ID }}</a></td>
-                        <td>{{ result.Item_ID }}</td>
                         <td>{{ result.Item_Author_id }}</td>
                         <td>{{ result.Item_Type_id }}</td>
                     </tr>

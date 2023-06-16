@@ -280,7 +280,7 @@ def items_find(request):
 
 
 def item_detail(request, item_id):
-    item = get_object_or_404(Items, Spell_ID=item_id)
+    item = get_object_or_404(Items, Item_ID=item_id)
     context = {'item': item}
     return render(request, 'home/item_detail.html', context)
 
