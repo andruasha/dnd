@@ -117,8 +117,7 @@
             <tbody>
                 {% for result in results %}
                     <tr>
-{#                        <td><a href="{% url 'home:bestiary_detail' result.Bestiary_ID %}">{{ result.Bestiary_ID }}</a></td>#}
-                        <td>{{ result.Bestiary_ID }}</td>
+                        <td><a href="{% url 'home:bestiary_detail' result.Bestiary_ID %}">{{ result.Bestiary_ID }}</a></td>
                         <td>{{ result.Bestiary_Author_id }}</td>
                         <td>{{ result.Species_ID_id }}</td>
                     </tr>

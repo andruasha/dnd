@@ -119,7 +119,7 @@ def bestiary_find(request):
 
 
 def bestiary_detail(request, bestiary_id):
-    bestiary = get_object_or_404(Bestiary, Spell_ID=bestiary_id)
+    bestiary = get_object_or_404(Bestiary, Bestiary_ID=bestiary_id)
     context = {'bestiary': bestiary}
     return render(request, 'home/bestiary_detail.html', context)
 
