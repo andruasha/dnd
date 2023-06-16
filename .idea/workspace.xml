@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="complete finds">
+    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="all working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
@@ -80,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686769730064</updated>
       <workItem from="1686769731928" duration="45014000" />
-      <workItem from="1686897851726" duration="25443000" />
+      <workItem from="1686897851726" duration="27082000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1686780979781</created>
@@ -250,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686935056059</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="all working">
+      <created>1686937165445</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1686937165445</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +282,8 @@
     <MESSAGE value="add spells detail" />
     <MESSAGE value="add bestiary and items find" />
     <MESSAGE value="complete finds" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete finds" />
+    <MESSAGE value="all working" />
+    <option name="LAST_COMMIT_MESSAGE" value="all working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -62,34 +62,34 @@ def bestiary_find(request):
 
         filters = Q()
         if Bestiary_ID:
-            filters &= Q(Spell_ID__startswith=Bestiary_ID)
+            filters &= Q(Bestiary_ID__startswith=Bestiary_ID)
 
         if Size_ID:
-            filters &= Q(Spell_Level=Size_ID)
+            filters &= Q(Size_ID=Size_ID)
 
         if Species_ID:
-            filters &= Q(School=Species_ID)
+            filters &= Q(Species_ID=Species_ID)
 
         if Worldview_ID:
-            filters &= Q(Archetypes=Worldview_ID)
+            filters &= Q(Worldview_ID=Worldview_ID)
 
         if Danger:
-            filters &= Q(Spell_Author=Danger)
+            filters &= Q(Danger=Danger)
 
         if Bestiary_Author:
-            filters &= Q(Spell_Author=Bestiary_Author)
+            filters &= Q(Bestiary_Author=Bestiary_Author)
 
         if Language_ID:
-            filters &= Q(Spell_Author=Language_ID)
+            filters &= Q(Language_ID=Language_ID)
 
         if Habitat_ID:
-            filters &= Q(Spell_Author=Habitat_ID)
+            filters &= Q(Habitat_ID=Habitat_ID)
 
         if Hits:
-            filters &= Q(Spell_Author=Hits)
+            filters &= Q(Hits=Hits)
 
         if Armor_ID:
-            filters &= Q(Spell_Author=Armor_ID)
+            filters &= Q(Armor_ID=Armor_ID)
 
         results = Bestiary.objects.filter(filters)
 
@@ -287,22 +287,22 @@ def items_find(request):
 
         filters = Q()
         if Item_ID:
-            filters &= Q(Spell_ID__startswith=Item_ID)
+            filters &= Q(Item_ID__startswith=Item_ID)
 
         if Item_Type:
-            filters &= Q(Spell_Level=Item_Type)
+            filters &= Q(Item_Type=Item_Type)
 
         if Item_Rarity:
-            filters &= Q(School=Item_Rarity)
+            filters &= Q(Item_Rarity=Item_Rarity)
 
         if Item_Setting:
-            filters &= Q(Archetypes=Item_Setting)
+            filters &= Q(Item_Setting=Item_Setting)
 
         if Item_Author:
-            filters &= Q(Spell_Author=Item_Author)
+            filters &= Q(Item_Author=Item_Author)
 
         if Item_Price:
-            filters &= Q(Spell_Author=Item_Price)
+            filters &= Q(Item_Price=Item_Price)
 
         results = Items.objects.filter(filters)
     else:
