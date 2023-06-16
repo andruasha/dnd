@@ -13,15 +13,6 @@
         <input type="text" id="Item_ID" name="Item_ID">
         <br>
 
-        <label for="Item_Author">Author:</label>
-        <select id="Item_Author" name="Item_Author">
-            <option value="" selected>---</option>
-            {% for author in authors %}
-                <option value="{{ author.pk }}">{{ author.username }}</option>
-            {% endfor %}
-        </select>
-        <br>
-
         <label for="Item_Type">Type:</label>
         <select id="Item_Type" name="Item_Type">
             <option value="" selected>---</option>

@@ -44,15 +44,6 @@
         <input type="text" id="Danger" name="Danger">
         <br>
 
-        <label for="Bestiary_Author">Bestiary_Author:</label>
-        <select id="Bestiary_Author" name="Bestiary_Author">
-            <option value="" selected>---</option>
-            {% for author in authors %}
-                <option value="{{ author.pk }}">{{ author.username }}</option>
-            {% endfor %}
-        </select>
-        <br>
-
         <label for="Language_ID">Language_ID:</label>
         <select id="Language_ID" name="Language_ID">
             <option value="" selected>---</option>
@@ -85,6 +76,9 @@
         <br>
 
         <input type="submit" value="Delete">
+        {% if status %}
+            <div>{{ status }}</div>
+        {% endif %}
     </form>
 
 </body>

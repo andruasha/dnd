@@ -2,9 +2,8 @@ from home.forms import BestiaryFindForm, BestiaryDeleteForm, BestiaryCreateForm
 from home.forms import ItemsFindForm, ItemsDeleteForm, ItemsCreateForm
 from home.forms import SpellFindForm
 from django.shortcuts import render, HttpResponseRedirect
-from home.models import Author, Items, Item_Type as Item_Types
+from home.models import Author, Bestiary, Items, Item_Type as Item_Types
 from home.models import Size, Species, Worldview, Armor, Language, Habitat
-from home.models import Item_Type as Items_Type
 from home.models import School, Archetypes as Archetype
 from home.forms import UserLoginForm, UserRegistrationForm
 from django.contrib import auth
@@ -84,6 +83,7 @@ def bestiary_find(request):
 
 @login_required(login_url='home:login')
 def bestiary_create(request):
+    status = None
     if request.method == 'POST':
         form = BestiaryCreateForm(data=request.POST)
         Bestiary_ID = request.POST['Bestiary_ID']
@@ -92,7 +92,6 @@ def bestiary_create(request):
         Speed = request.POST['Speed']
         Worldview_ID = request.POST['Worldview_ID']
         Danger = request.POST['Danger']
-        Bestiary_Author = request.POST['Bestiary_Author']
         Language_ID = request.POST['Language_ID']
         Habitat_ID = request.POST['Habitat_ID']
         Hits = request.POST['Hits']
@@ -103,11 +102,40 @@ def bestiary_create(request):
         Skills = request.POST['Skills']
         Description = request.POST['Description']
 
-        print(Bestiary_ID)
+        try:
+            size_id = Size.objects.get(pk=Size_ID)
+            species_id = Species.objects.get(pk=Species_ID)
+            worldview_id = Worldview.objects.get(pk=Worldview_ID)
+            armor_id = Armor.objects.get(pk=Armor_ID)
+            language_id = Language.objects.get(pk=Language_ID)
+            habitat_id = Habitat.objects.get(pk=Habitat_ID)
+
+            if Bestiary_ID and size_id and species_id and worldview_id and armor_id and Hits and Speed and language_id and Characteristics and habitat_id and Danger:
+                Bestiary.objects.create(Bestiary_ID = Bestiary_ID,
+                                        Bestiary_Author_id=request.user.pk,
+                                        Size_ID = size_id,
+                                        Species_ID = species_id,
+                                        Speed = Speed,
+                                        Worldview_ID = worldview_id,
+                                        Danger = Danger,
+                                        Language_ID = language_id,
+                                        Habitat_ID = habitat_id,
+                                        Hits = Hits,
+                                        Armor_ID = armor_id,
+                                        Characteristics = Characteristics,
+                                        Resistance_Damage = Resistance_Damage,
+                                        Immunity_Damage = Immunity_Damage,
+                                        Skills = Skills,
+                                        Description = Description, )
+                status = 'Ok'
+            else:
+                raise ValueError('Error')
+        except:
+            status = 'Error'
+
     else:
         form = BestiaryCreateForm()
 
-    authors = Author.objects.all()
     sizes = Size.objects.all()
     specieses = Species.objects.all()
     worldviews = Worldview.objects.all()
@@ -116,13 +144,13 @@ def bestiary_create(request):
     habitats = Habitat.objects.all()
 
     context = {'form': form,
-               'authors': authors,
                'sizes': sizes,
                'specieses': specieses,
                'worldviews': worldviews,
                'armors': armors,
                'languages': languages,
-               'habitats': habitats, }
+               'habitats': habitats,
+               'status': status, }
 
     return render(request, 'home/bestiary_create.html', context)
 
@@ -136,7 +164,6 @@ def bestiary_delete(request):
         Species_ID = request.POST['Species_ID']
         Worldview_ID = request.POST['Worldview_ID']
         Danger = request.POST['Danger']
-        Bestiary_Author = request.POST['Bestiary_Author']
         Language_ID = request.POST['Language_ID']
         Habitat_ID = request.POST['Habitat_ID']
         Hits = request.POST['Hits']
@@ -146,7 +173,6 @@ def bestiary_delete(request):
     else:
         form = BestiaryDeleteForm()
 
-    authors = Author.objects.all()
     sizes = Size.objects.all()
     specieses = Species.objects.all()
     worldviews = Worldview.objects.all()
@@ -155,7 +181,6 @@ def bestiary_delete(request):
     habitats = Habitat.objects.all()
 
     context = {'form': form,
-               'authors': authors,
                'sizes': sizes,
                'specieses': specieses,
                'worldviews': worldviews,
@@ -181,7 +206,7 @@ def items_find(request):
         form = ItemsFindForm()
 
     authors = Author.objects.all()
-    types = Items_Type.objects.all()
+    types = Item_Types.objects.all()
 
     context = {'form': form,
                'authors': authors,
@@ -222,12 +247,9 @@ def items_create(request):
     else:
         form = ItemsCreateForm()
 
-
-    authors = Author.objects.all()
-    types = Items_Type.objects.all()
+    types = Item_Types.objects.all()
 
     context = {'form': form,
-               'authors': authors,
                'types': types,
                'status': status, }
 
@@ -242,18 +264,15 @@ def items_delete(request):
         Item_Type = request.POST['Item_Type']
         Item_Rarity = request.POST['Item_Rarity']
         Item_Setting = request.POST['Item_Setting']
-        Item_Author = request.POST['Item_Author']
         Item_Price = request.POST['Item_Price']
 
         print(Item_ID)
     else:
         form = ItemsDeleteForm()
 
-    authors = Author.objects.all()
-    types = Items_Type.objects.all()
+    types = Item_Types.objects.all()
 
     context = {'form': form,
-               'authors': authors,
                'types': types, }
 
     return render(request, 'home/items_delete.html', context)
@@ -292,18 +311,14 @@ def spells_create(request):
         Spell_Rarity = request.POST['Spell_Rarity']
         Spell_Level = request.POST['Spell_Level']
         Archetypes = request.POST['Archetypes']
-        Spell_Author = request.POST['Spell_Author']
 
-        print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
     else:
         form = SpellFindForm()
 
-    authors = Author.objects.all()
     schools = School.objects.all()
     archetypes = Archetype.objects.all()
 
     context = {'form': form,
-               'authors': authors,
                'schools': schools,
                'archetypes': archetypes, }
 
@@ -317,18 +332,14 @@ def spells_delete(request):
         Spell_ID = request.POST['Spell_ID']
         Spell_Level = request.POST['Spell_Level']
         Archetypes = request.POST['Archetypes']
-        Spell_Author = request.POST['Spell_Author']
 
-        print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
     else:
         form = SpellFindForm()
 
-    authors = Author.objects.all()
     schools = School.objects.all()
     archetypes = Archetype.objects.all()
 
     context = {'form': form,
-               'authors': authors,
                'schools': schools,
                'archetypes': archetypes, }
 

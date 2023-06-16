@@ -13,15 +13,6 @@
         <input type="text" id="Spell_ID" name="Spell_ID">
         <br>
 
-        <label for="Spell_Author">Author:</label>
-        <select id="Spell_Author" name="Spell_Author">
-            <option value="" selected>---</option>
-            {% for author in authors %}
-                <option value="{{ author.pk }}">{{ author.username }}</option>
-            {% endfor %}
-        </select>
-        <br>
-
         <label for="Spell_Level">Level:</label>
         <input type="text" id="Spell_Level" name="Spell_Level">
         <br>
@@ -45,6 +36,9 @@
         <br>
 
         <input type="submit" value="Delete">
+        {% if status %}
+            <div>{{ status }}</div>
+        {% endif %}
     </form>
 
 
