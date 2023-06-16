@@ -1,10 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
 from home.views import index
+from django.contrib.auth import views as authViews
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('exit/', authViews.LogoutView.as_view(), name='exit'),
     path('', index, name='index'),
     path('', include('home.urls', namespace='bestiary_find')),
     path('', include('home.urls', namespace='bestiary_create')),

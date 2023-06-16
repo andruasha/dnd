@@ -93,21 +93,23 @@ class ItemsCreateForm(forms.ModelForm):
         model = Items
         fields = ['Item_ID', 'Item_Type', 'Item_Rarity',
                   'Item_Setting', 'Item_Author', 'Item_Price',
-                  'Item_Description', ]
+                  'Item_Description', 'Item_Subtype', ]
 
 
 class ItemsDeleteForm(forms.ModelForm):
     class Meta:
         model = Items
         fields = ['Item_ID', 'Item_Type', 'Item_Rarity',
-                  'Item_Setting', 'Item_Author', 'Item_Price', ]
+                  'Item_Setting', 'Item_Author', 'Item_Price',
+                  'Item_Subtype', ]
 
 
 class ItemsFindForm(forms.ModelForm):
     class Meta:
         model = Items
         fields = ['Item_ID', 'Item_Type', 'Item_Rarity',
-                  'Item_Setting', 'Item_Author', 'Item_Price', ]
+                  'Item_Setting', 'Item_Author', 'Item_Price',
+                  'Item_Subtype', ]
 
 
 class SpellDeleteForm(forms.ModelForm):
