@@ -2,7 +2,7 @@ from home.forms import BestiaryFindForm, BestiaryDeleteForm, BestiaryCreateForm
 from home.forms import ItemsFindForm, ItemsDeleteForm, ItemsCreateForm
 from home.forms import SpellFindForm
 from django.shortcuts import render, HttpResponseRedirect
-from home.models import Author, Bestiary, Items, Item_Type as Item_Types
+from home.models import Author, Bestiary, Spells, Items, Item_Type as Item_Types
 from home.models import Size, Species, Worldview, Armor, Language, Habitat
 from home.models import School, Archetypes as Archetype
 from home.forms import UserLoginForm, UserRegistrationForm
@@ -283,10 +283,10 @@ def spells_find(request):
         form = SpellFindForm(data=request.POST)
         Spell_ID = request.POST['Spell_ID']
         Spell_Level = request.POST['Spell_Level']
-        Archetypes = request.POST['Archetypes']
+        School_ID = request.POST['School']
+        Archetypes_ID = request.POST['Archetypes']
         Spell_Author = request.POST['Spell_Author']
 
-        print(Spell_ID, Spell_Level, Archetypes, Spell_Author)
     else:
         form = SpellFindForm()
 
@@ -304,14 +304,37 @@ def spells_find(request):
 
 @login_required(login_url='home:login')
 def spells_create(request):
+    status = None
     if request.method == 'POST':
         form = SpellFindForm(data=request.POST)
         Spell_ID = request.POST['Spell_ID']
-        Spell_Type = request.POST['Spell_Type']
-        Spell_Rarity = request.POST['Spell_Rarity']
         Spell_Level = request.POST['Spell_Level']
-        Archetypes = request.POST['Archetypes']
+        School_ID = request.POST['School']
+        Time_Application = request.POST['Time_Application']
+        Distance = request.POST['Distance']
+        Duration = request.POST['Duration']
+        Components = request.POST['Components']
+        Archetypes_ID = request.POST['Archetypes']
+        Description = request.POST['Description']
 
+        try:
+            school_id = School.objects.get(pk=School_ID)
+            archetypes_id = Archetype.objects.get(pk=Archetypes_ID)
+
+            if Spell_ID and Spell_Level and school_id and Components and archetypes_id:
+                Spells.objects.create(Spell_ID = Spell_ID,
+                                      Spell_Author_id=request.user.pk,
+                                      Spell_Level = Spell_Level,
+                                      School = school_id,
+                                      Time_Application = Time_Application,
+                                      Distance = Distance,
+                                      Duration = Duration,
+                                      Components = Components,
+                                      Archetypes = archetypes_id,
+                                      Description = Description, )
+                status = 'Ok'
+        except:
+            status = 'Error'
     else:
         form = SpellFindForm()
 
@@ -320,7 +343,8 @@ def spells_create(request):
 
     context = {'form': form,
                'schools': schools,
-               'archetypes': archetypes, }
+               'archetypes': archetypes,
+               'status': status, }
 
     return render(request, 'home/spells_create.html', context)
 
@@ -331,7 +355,8 @@ def spells_delete(request):
         form = SpellFindForm(data=request.POST)
         Spell_ID = request.POST['Spell_ID']
         Spell_Level = request.POST['Spell_Level']
-        Archetypes = request.POST['Archetypes']
+        School_ID = request.POST['School']
+        Archetypes_ID = request.POST['Archetypes']
 
     else:
         form = SpellFindForm()
