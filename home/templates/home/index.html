@@ -28,6 +28,13 @@
 <h1>DND Wiki</h1>
 
     <div class="dropdown">
+        <button class="dropdown-button">Главная</button>
+        <div class="dropdown-content">
+            <a href="{% url 'home:index' %}">Главная</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
         <button>Бестиарий</button>
         <div class="dropdown-content">
             <a href="{% url 'home:bestiary_delete' %}">Удалить</a>
@@ -53,6 +60,20 @@
             <a href={% url 'home:items_find' %}>Найти</a>
         </div>
     </div>
+
+
+    {% if user.is_authenticated %}
+        <div class="auth-buttons">
+            <a href="{% url 'home:logout' %}">Выйти</a>
+        </div>
+    {% else %}
+        <div class="auth-buttons">
+            <a href="{% url 'home:login' %}">Войти</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="{% url 'home:registration' %}">Зарегистрироваться</a>
+        </div>
+    {% endif %}
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.shortcuts import get_object_or_404
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
@@ -37,11 +37,16 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('home:registration'))
+            return HttpResponseRedirect(reverse('home:login'))
     else:
         form = UserRegistrationForm()
     context = {'form': form}
     return render(request, 'home/registration.html', context)
+
+
+def logout_view(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('home:index'))
 
 
 def index(request):
