@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c9c750a4-1d75-432a-b594-5e505c010141" name="Changes" comment="html change">
       <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/home/bestiary_find.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/bestiary_find.html" afterDir="false" />
@@ -88,7 +87,7 @@
       <updated>1686769730064</updated>
       <workItem from="1686769731928" duration="45014000" />
       <workItem from="1686897851726" duration="27426000" />
-      <workItem from="1686993174575" duration="17766000" />
+      <workItem from="1686993174575" duration="18075000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1686780979781</created>
@@ -307,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687012573547</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="html change">
+      <created>1687013619050</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1687013619050</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +342,8 @@
     <MESSAGE value="html changes" />
     <MESSAGE value="html changes completed" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="html change" />
+    <option name="LAST_COMMIT_MESSAGE" value="html change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
