@@ -2,8 +2,55 @@
 <html>
 <head>
     <title>D&D</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="dropdown">
+        <button>Бестиарий</button>
+        <div class="dropdown-content">
+            <a href="{% url 'home:bestiary_delete' %}">Удалить</a>
+            <a href={% url 'home:bestiary_create' %}>Создать</a>
+            <a href={% url 'home:bestiary_find' %}>Найти</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button>Заклинания</button>
+        <div class="dropdown-content">
+            <a href={% url 'home:spells_delete' %}>Удалить</a>
+            <a href={% url 'home:spells_create' %}>Создать</a>
+            <a href={% url 'home:spells_find' %}>Найти</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button>Предметы</button>
+        <div class="dropdown-content">
+            <a href={% url 'home:items_delete' %}>Удалить</a>
+            <a href={% url 'home:items_create' %}>Создать</a>
+            <a href={% url 'home:items_find' %}>Найти</a>
+        </div>
+    </div>
     <h1>Items Delete</h1>
 
     <form method="post" action="{% url 'home:items_delete' %}">

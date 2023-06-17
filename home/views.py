@@ -1,17 +1,19 @@
+from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.contrib import auth
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.db.models import Q
+
+from home.forms import UserLoginForm, UserRegistrationForm
 from home.forms import BestiaryFindForm, BestiaryDeleteForm, BestiaryCreateForm
 from home.forms import ItemsFindForm, ItemsDeleteForm, ItemsCreateForm
-from home.forms import SpellFindForm
-from django.shortcuts import render, HttpResponseRedirect
-from home.models import Author, Bestiary, Spells, Items, Item_Type as Item_Types
-from home.models import Size, Species, Worldview, Armor, Language, Habitat
-from home.models import School, Archetypes as Archetype
-from home.forms import UserLoginForm, UserRegistrationForm
-from django.contrib import auth
-from django.urls import reverse
-from django.contrib.auth.decorators import login_required
+from home.forms import SpellFindForm, SpellDeleteForm, SpellCreateForm
 
-from django.db.models import Q
-from django.shortcuts import get_object_or_404
+from home.models import Author, Bestiary, Spells, Items
+from home.models import Item_Type
+from home.models import Size, Species, Worldview, Armor, Language, Habitat
+from home.models import School, Archetypes
 
 
 def login(request):
@@ -279,7 +281,7 @@ def items_find(request):
     if request.method == 'POST':
         form = ItemsCreateForm(data=request.POST)
         Item_ID = request.POST['Item_ID']
-        Item_Type = request.POST['Item_Type']
+        Item_Type_ID = request.POST['Item_Type']
         Item_Rarity = request.POST['Item_Rarity']
         Item_Setting = request.POST['Item_Setting']
         Item_Author = request.POST['Item_Author']
@@ -289,8 +291,8 @@ def items_find(request):
         if Item_ID:
             filters &= Q(Item_ID__startswith=Item_ID)
 
-        if Item_Type:
-            filters &= Q(Item_Type=Item_Type)
+        if Item_Type_ID:
+            filters &= Q(Item_Type=Item_Type_ID)
 
         if Item_Rarity:
             filters &= Q(Item_Rarity=Item_Rarity)
@@ -310,7 +312,7 @@ def items_find(request):
         results = None
 
     authors = Author.objects.all()
-    types = Item_Types.objects.all()
+    types = Item_Type.objects.all()
 
     context = {'form': form,
                'authors': authors,
@@ -332,7 +334,7 @@ def items_create(request):
     if request.method == 'POST':
         form = ItemsCreateForm(data=request.POST)
         Item_ID = request.POST['Item_ID']
-        Item_Type = request.POST['Item_Type']
+        Item_Type_ID = request.POST['Item_Type']
         Item_Subtype = request.POST['Item_Subtype']
         Item_Rarity = request.POST['Item_Rarity']
         Item_Setting = request.POST['Item_Setting']
@@ -340,7 +342,7 @@ def items_create(request):
         Item_Description = request.POST['Item_Description']
 
         try:
-            item_type = Item_Types.objects.get(pk=Item_Type)
+            item_type = Item_Type.objects.get(pk=Item_Type_ID)
             if Item_ID and item_type and Item_Rarity:
                 Items.objects.create(Item_ID=Item_ID,
                                      Item_Type=item_type,
@@ -358,7 +360,7 @@ def items_create(request):
     else:
         form = ItemsCreateForm()
 
-    types = Item_Types.objects.all()
+    types = Item_Type.objects.all()
 
     context = {'form': form,
                'types': types,
@@ -372,7 +374,7 @@ def items_delete(request):
     if request.method == 'POST':
         form = ItemsCreateForm(data=request.POST)
         Item_ID = request.POST['Item_ID']
-        Item_Type = request.POST['Item_Type']
+        Item_Type_ID = request.POST['Item_Type']
         Item_Rarity = request.POST['Item_Rarity']
         Item_Setting = request.POST['Item_Setting']
         Item_Price = request.POST['Item_Price']
@@ -382,8 +384,8 @@ def items_delete(request):
         if Item_ID:
             filter_params['Item_ID'] = Item_ID
 
-        if Item_Type:
-            filter_params['Item_Type'] = Item_Type
+        if Item_Type_ID:
+            filter_params['Item_Type'] = Item_Type_ID
 
         if Item_Rarity:
             filter_params['Item_Rarity'] = Item_Rarity
@@ -409,7 +411,7 @@ def items_delete(request):
         form = ItemsDeleteForm()
         status = 'Nothing'
 
-    types = Item_Types.objects.all()
+    types = Item_Type.objects.all()
 
     context = {'form': form,
                'types': types,
@@ -451,7 +453,7 @@ def spells_find(request):
 
     authors = Author.objects.all()
     schools = School.objects.all()
-    archetypes = Archetype.objects.all()
+    archetypes = Archetypes.objects.all()
 
     context = {'form': form,
                'authors': authors,
@@ -485,7 +487,7 @@ def spells_create(request):
 
         try:
             school_id = School.objects.get(pk=School_ID)
-            archetypes_id = Archetype.objects.get(pk=Archetypes_ID)
+            archetypes_id = Archetypes.objects.get(pk=Archetypes_ID)
 
             if Spell_ID and Spell_Level and school_id and Components and archetypes_id:
                 Spells.objects.create(Spell_ID = Spell_ID,
@@ -502,10 +504,10 @@ def spells_create(request):
         except:
             status = 'Error'
     else:
-        form = SpellFindForm()
+        form = SpellCreateForm()
 
     schools = School.objects.all()
-    archetypes = Archetype.objects.all()
+    archetypes = Archetypes.objects.all()
 
     context = {'form': form,
                'schools': schools,
@@ -550,11 +552,11 @@ def spells_delete(request):
             status = 'Nothing'
 
     else:
-        form = SpellFindForm()
+        form = SpellDeleteForm()
         status = 'Nothing'
 
     schools = School.objects.all()
-    archetypes = Archetype.objects.all()
+    archetypes = Archetypes.objects.all()
 
     context = {'form': form,
                'schools': schools,

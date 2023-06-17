@@ -86,7 +86,6 @@ class Items(models.Model):
         return str({field: value for field, value in field_values.items() if not field.startswith('_')})
 
 
-
 class Bestiary(models.Model):
     Bestiary_ID = models.TextField(primary_key=True, null=False)
     Bestiary_Author = models.ForeignKey('Author', on_delete=models.DO_NOTHING, to_field='Author_ID')
