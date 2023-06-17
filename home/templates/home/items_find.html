@@ -99,25 +99,45 @@
         <select id="Item_Type" name="Item_Type">
             <option value="" selected>---</option>
             {% for type in types %}
-                <option value="{{ type.pk }}">{{ type.pk }}</option>
+                <option value="{{ type }}">{{ type }}</option>
             {% endfor %}
         </select>
         <br>
 
         <label for="Item_Subtype">Subtype:</label>
-        <input type="text" id="Item_Subtype" name="Item_Subtype">
+        <select id="Item_Subtype" name="Item_Subtype">
+            <option value="" selected>---</option>
+            {% for subtype in subtypes %}
+                <option value="{{ subtype }}">{{ subtype }}</option>
+            {% endfor %}
+        </select>
         <br>
 
         <label for="Item_Rarity">Rarity:</label>
-        <input type="text" id="Item_Rarity" name="Item_Rarity">
+        <select id="Item_Rarity" name="Item_Rarity">
+            <option value="" selected>---</option>
+            {% for rarity in rarities %}
+                <option value="{{ rarity }}">{{ rarity }}</option>
+            {% endfor %}
+        </select>
         <br>
 
         <label for="Item_Setting">Setting:</label>
-        <input type="text" id="Item_Setting" name="Item_Setting">
+        <select id="Item_Setting" name="Item_Setting">
+            <option value="" selected>---</option>
+            {% for setting in settings %}
+                <option value="{{ setting }}">{{ setting }}</option>
+            {% endfor %}
+        </select>
         <br>
 
         <label for="Item_Price">Price:</label>
-        <input type="text" id="Item_Price" name="Item_Price">
+        <select id="Item_Price" name="Item_Price">
+            <option value="" selected>---</option>
+            {% for price in prices %}
+                <option value="{{ price }}">{{ price }}</option>
+            {% endfor %}
+        </select>
         <br>
 
         <input type="submit" value="Find">

@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect, redirect
+from django.shortcuts import render, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
@@ -105,12 +105,14 @@ def bestiary_find(request):
         results = None
 
     authors = Author.objects.all()
-    sizes = Size.objects.all()
-    specieses = Species.objects.all()
-    worldviews = Worldview.objects.all()
-    armors = Armor.objects.all()
-    languages = Language.objects.all()
-    habitats = Habitat.objects.all()
+    sizes = Bestiary.objects.values_list('Size_ID', flat=True).distinct()
+    specieses = Bestiary.objects.values_list('Species_ID', flat=True).distinct()
+    worldviews = Bestiary.objects.values_list('Worldview_ID', flat=True).distinct()
+    dangers = Bestiary.objects.values_list('Danger', flat=True).distinct()
+    languages = Bestiary.objects.values_list('Language_ID', flat=True).distinct()
+    habitats = Bestiary.objects.values_list('Habitat_ID', flat=True).distinct()
+    hitses = Bestiary.objects.values_list('Hits', flat=True).distinct()
+    armors = Bestiary.objects.values_list('Armor_ID', flat=True).distinct()
 
     context = {'form': form,
                'authors': authors,
@@ -120,7 +122,9 @@ def bestiary_find(request):
                'armors': armors,
                'languages': languages,
                'habitats': habitats,
-               'results': results, }
+               'results': results,
+               'hitest': hitses,
+               'dangers': dangers, }
 
     return render(request, 'home/bestiary_find.html', context)
 
@@ -263,17 +267,23 @@ def bestiary_delete(request):
         form = BestiaryDeleteForm()
         status = 'Nothing'
 
-    sizes = Size.objects.all()
-    specieses = Species.objects.all()
-    worldviews = Worldview.objects.all()
-    armors = Armor.objects.all()
-    languages = Language.objects.all()
-    habitats = Habitat.objects.all()
+    filtered_bestiaries = Bestiary.objects.filter(Bestiary_Author=request.user.pk)
+    sizes = filtered_bestiaries.values_list('Size_ID', flat=True).distinct()
+    specieses = filtered_bestiaries.values_list('Species_ID', flat=True).distinct()
+    worldviews = filtered_bestiaries.values_list('Worldview_ID', flat=True).distinct()
+    dangers = filtered_bestiaries.values_list('Danger', flat=True).distinct()
+    languages = filtered_bestiaries.values_list('Language_ID', flat=True).distinct()
+    habitats = filtered_bestiaries.values_list('Habitat_ID', flat=True).distinct()
+    hitses = filtered_bestiaries.values_list('Hits', flat=True).distinct()
+    armors = filtered_bestiaries.values_list('Armor_ID', flat=True).distinct()
 
     context = {'form': form,
+               'filtered_bestiaries': filtered_bestiaries,
                'sizes': sizes,
                'specieses': specieses,
                'worldviews': worldviews,
+               'dangers': dangers,
+               'hitses': hitses,
                'armors': armors,
                'languages': languages,
                'habitats': habitats,
@@ -317,11 +327,19 @@ def items_find(request):
         results = None
 
     authors = Author.objects.all()
-    types = Item_Type.objects.all()
+    types = Items.objects.values_list('Item_Type', flat=True).distinct()
+    subtypes = Items.objects.values_list('Item_Subtype', flat=True).distinct()
+    rarities = Items.objects.values_list('Item_Rarity', flat=True).distinct()
+    settings = Items.objects.values_list('Item_Setting', flat=True).distinct()
+    prices = Items.objects.values_list('Item_Price', flat=True).distinct()
 
     context = {'form': form,
                'authors': authors,
                'types': types,
+               'subtypes': subtypes,
+               'rarities': rarities,
+               'settings': settings,
+               'prices': prices,
                'results': results, }
 
     return render(request, 'home/items_find.html', context)
@@ -380,6 +398,7 @@ def items_delete(request):
         form = ItemsCreateForm(data=request.POST)
         Item_ID = request.POST['Item_ID']
         Item_Type_ID = request.POST['Item_Type']
+        Item_Subtype = request.POST['Item_Subtype']
         Item_Rarity = request.POST['Item_Rarity']
         Item_Setting = request.POST['Item_Setting']
         Item_Price = request.POST['Item_Price']
@@ -391,6 +410,9 @@ def items_delete(request):
 
         if Item_Type_ID:
             filter_params['Item_Type'] = Item_Type_ID
+
+        if Item_Subtype:
+            filter_params['Item_Subtype'] = Item_Subtype
 
         if Item_Rarity:
             filter_params['Item_Rarity'] = Item_Rarity
@@ -416,10 +438,20 @@ def items_delete(request):
         form = ItemsDeleteForm()
         status = 'Nothing'
 
-    types = Item_Type.objects.all()
+    filtered_items = Items.objects.filter(Item_Author=request.user.pk)
+    types = filtered_items.values_list('Item_Type', flat=True).distinct()
+    subtypes = filtered_items.values_list('Item_Subtype', flat=True).distinct()
+    rarities = filtered_items.values_list('Item_Rarity', flat=True).distinct()
+    settings = filtered_items.values_list('Item_Setting', flat=True).distinct()
+    prices = filtered_items.values_list('Item_Price', flat=True).distinct()
 
     context = {'form': form,
+               'filtered_items': filtered_items,
                'types': types,
+               'subtypes': subtypes,
+               'rarities': rarities,
+               'settings': settings,
+               'prices': prices,
                'status': status, }
 
     return render(request, 'home/items_delete.html', context)
@@ -457,13 +489,15 @@ def spells_find(request):
         form = SpellFindForm()
 
     authors = Author.objects.all()
-    schools = School.objects.all()
-    archetypes = Archetypes.objects.all()
+    levels = Spells.objects.values_list('Spell_Level', flat=True).distinct()
+    schools = Spells.objects.values_list('School', flat=True).distinct()
+    archetypes = Spells.objects.values_list('Archetypes', flat=True).distinct()
 
     context = {'form': form,
-               'authors': authors,
+               'levels': levels,
                'schools': schools,
                'archetypes': archetypes,
+               'authors': authors,
                'results': results, }
 
     return render(request, 'home/spells_find.html', context)
@@ -550,20 +584,24 @@ def spells_delete(request):
         if len(filter_params)>1:
             try:
                 Spells.objects.filter(**filter_params).delete()
-                status = 'Ok'
+                status = 'Deleted'
             except:
                 status = 'Error'
         else:
-            status = 'Nothing'
+            status = None
 
     else:
         form = SpellDeleteForm()
-        status = 'Nothing'
+        status = None
 
-    schools = School.objects.all()
-    archetypes = Archetypes.objects.all()
+    filtered_spells = Spells.objects.filter(Spell_Author=request.user.pk)
+    levels = filtered_spells.values_list('Spell_Level', flat=True).distinct()
+    schools = filtered_spells.values_list('School', flat=True).distinct()
+    archetypes = filtered_spells.values_list('Archetypes', flat=True).distinct()
 
     context = {'form': form,
+               'filtered_spells': filtered_spells,
+               'levels': levels,
                'schools': schools,
                'archetypes': archetypes,
                'status': status, }

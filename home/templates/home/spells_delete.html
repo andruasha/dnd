@@ -64,18 +64,28 @@
         {% csrf_token %}
 
         <label for="Spell_ID">Spell ID:</label>
-        <input type="text" id="Spell_ID" name="Spell_ID">
+        <select id="Spell_ID" name="Spell_ID">
+            <option value="" selected>---</option>
+            {% for spell in filtered_spells %}
+                <option value="{{ spell.pk }}">{{ spell.pk }}</option>
+            {% endfor %}
+        </select>
         <br>
 
         <label for="Spell_Level">Level:</label>
-        <input type="text" id="Spell_Level" name="Spell_Level">
+        <select id="Spell_Level" name="Spell_Level">
+            <option value="" selected>---</option>
+            {% for level in levels %}
+                <option value="{{ level }}">{{ level }}</option>
+            {% endfor %}
+        </select>
         <br>
 
         <label for="School">School:</label>
         <select id="School" name="School">
             <option value="" selected>---</option>
             {% for school in schools %}
-                <option value="{{ school.pk }}">{{ school.pk }}</option>
+                <option value="{{ school }}">{{ school }}</option>
             {% endfor %}
         </select>
         <br>
@@ -84,7 +94,7 @@
         <select id="Archetypes" name="Archetypes">
             <option value="" selected>---</option>
             {% for archetype in archetypes %}
-                <option value="{{ archetype.pk }}">{{ archetype.pk }}</option>
+                <option value="{{ archetype }}">{{ archetype }}</option>
             {% endfor %}
         </select>
         <br>

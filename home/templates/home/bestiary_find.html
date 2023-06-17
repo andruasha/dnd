@@ -85,37 +85,6 @@
         <input type="text" id="Bestiary_ID" name="Bestiary_ID">
         <br>
 
-        <label for="Size_ID">Size_ID:</label>
-        <select id="Size_ID" name="Size_ID">
-            <option value="" selected>---</option>
-            {% for size in sizes %}
-                <option value="{{ size.pk }}">{{ size.pk }}</option>
-            {% endfor %}
-        </select>
-        <br>
-
-        <label for="Species_ID">Species_ID:</label>
-        <select id="Species_ID" name="Species_ID">
-            <option value="" selected>---</option>
-            {% for species in specieses %}
-                <option value="{{ species.pk }}">{{ species.pk }}</option>
-            {% endfor %}
-        </select>
-        <br>
-
-        <label for="Worldview_ID">Worldview_ID:</label>
-        <select id="Worldview_ID" name="Worldview_ID">
-            <option value="" selected>---</option>
-            {% for worldview in worldviews %}
-                <option value="{{ worldview.pk }}">{{ worldview.pk }}</option>
-            {% endfor %}
-        </select>
-        <br>
-
-        <label for="Danger">Danger:</label>
-        <input type="text" id="Danger" name="Danger">
-        <br>
-
         <label for="Bestiary_Author">Bestiary_Author:</label>
         <select id="Bestiary_Author" name="Bestiary_Author">
             <option value="" selected>---</option>
@@ -125,11 +94,47 @@
         </select>
         <br>
 
+        <label for="Size_ID">Size_ID:</label>
+        <select id="Size_ID" name="Size_ID">
+            <option value="" selected>---</option>
+            {% for size in sizes %}
+                <option value="{{ size }}">{{ size }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="Species_ID">Species_ID:</label>
+        <select id="Species_ID" name="Species_ID">
+            <option value="" selected>---</option>
+            {% for species in specieses %}
+                <option value="{{ species }}">{{ species }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="Worldview_ID">Worldview_ID:</label>
+        <select id="Worldview_ID" name="Worldview_ID">
+            <option value="" selected>---</option>
+            {% for worldview in worldviews %}
+                <option value="{{ worldview }}">{{ worldview }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="Danger">Danger:</label>
+        <select id="Danger" name="Danger">
+            <option value="" selected>---</option>
+            {% for danger in dangers %}
+                <option value="{{ danger }}">{{ danger }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
         <label for="Language_ID">Language_ID:</label>
         <select id="Language_ID" name="Language_ID">
             <option value="" selected>---</option>
             {% for language in languages %}
-                <option value="{{ language.pk }}">{{ language.pk }}</option>
+                <option value="{{ language }}">{{ language }}</option>
             {% endfor %}
         </select>
         <br>
@@ -138,20 +143,25 @@
         <select id="Habitat_ID" name="Habitat_ID">
             <option value="" selected>---</option>
             {% for habitat in habitats %}
-                <option value="{{ habitat.pk }}">{{ habitat.pk }}</option>
+                <option value="{{ habitat }}">{{ habitat }}</option>
             {% endfor %}
         </select>
         <br>
 
         <label for="Hits">Hits:</label>
-        <input type="text" id="Hits" name="Hits">
+        <select id="Hits" name="Hits">
+            <option value="" selected>---</option>
+            {% for hits in hitses %}
+                <option value="{{ hits }}">{{ hits }}</option>
+            {% endfor %}
+        </select>
         <br>
 
         <label for="Armor_ID">Armor_ID:</label>
         <select id="Armor_ID" name="Armor_ID">
             <option value="" selected>---</option>
             {% for armor in armors %}
-                <option value="{{ armor.pk }}">{{ armor.pk }}</option>
+                <option value="{{ armor }}">{{ armor }}</option>
             {% endfor %}
         </select>
         <br>
