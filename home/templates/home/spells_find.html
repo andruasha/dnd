@@ -141,7 +141,7 @@
                         <td><a href="{% url 'home:spell_detail' result.Spell_ID %}">{{ result.Spell_ID }}</a></td>
                         <td>{{ result.Spell_Level }}</td>
                         <td>{{ result.School_id }}</td>
-                        <td>{{ result.Spell_Author_id }}</td>
+                        <td>{{ result.Spell_Author.username }}</td>
                         <td>{{ result.Archetypes_id }}</td>
                     </tr>
                 {% endfor %}

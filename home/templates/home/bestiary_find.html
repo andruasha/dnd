@@ -182,7 +182,7 @@
                 {% for result in results %}
                     <tr>
                         <td><a href="{% url 'home:bestiary_detail' result.Bestiary_ID %}">{{ result.Bestiary_ID }}</a></td>
-                        <td>{{ result.Bestiary_Author_id }}</td>
+                        <td>{{ result.Bestiary_Author.username }}</td>
                         <td>{{ result.Species_ID_id }}</td>
                     </tr>
                 {% endfor %}
